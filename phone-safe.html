@@ -36,6 +36,8 @@ details[open] .tap::before { content:'hide '; }
 .plain-search { background:#10141d; border:1px solid var(--line); border-radius:14px; padding:12px; color:#d7dbea; font-size:.95rem; overflow-wrap:anywhere; }
 .toplink { display:block; text-align:center; color:var(--accent); margin:18px 0; }
 .hidden { display:none !important; }
+
+.category-hub,.compare-hub{background:#111722;border:1px solid var(--line);border-radius:18px;padding:14px;margin:12px 0 16px}.category-hub h2,.compare-hub h2{font-size:1.05rem;margin:0 0 4px}.category-hub p{margin:0;color:var(--muted);font-size:.92rem}.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:8px;margin-top:12px}.chip{border:1px solid #3b4358;background:#1c2230;color:#f2f2f2;padding:10px;border-radius:10px;font-weight:650;cursor:pointer;text-align:left;display:flex;flex-direction:column;gap:2px;min-height:62px}.chip small,.cat-label{color:var(--muted);font-weight:500;display:block}.chip.active{border-color:var(--accent);box-shadow:0 0 0 1px rgba(142,162,255,.45) inset;background:#232b43}.cat-label{font-size:.78rem;margin-top:3px}
 </style>
 </head>
 <body id="top">
@@ -43,731 +45,742 @@ details[open] .tap::before { content:'hide '; }
   <h1>Unitek Pre Reqs CH. 1 &amp; 2</h1>
   <input id="search" placeholder="Search terms or definitions..." autocomplete="off">
   <nav><a href="#cards">Cards</a><a href="#index">Index</a><button class="action" id="clearSearch" type="button">Clear</button></nav>
-  <div class="meta"><span id="visibleCount">180</span> / 180 cards visible · tap a card to reveal definition</div>
+  <div class="meta"><span id="visibleCount">180</span> / 180 cards visible · bucket: <span id="activeFilter">all buckets</span></div>
 </header>
 <main>
-  <div class="instructions">
-    Search is active now because this is hosted on GitHub Pages. Try words like <b>fibrosis</b>, <b>algia</b>, or <b>tissue</b>.
-  </div>
+  <div class="instructions">The words are now bucketed into intuitive study categories. Tap a bucket, then tap cards to reveal definitions.</div>
+<section class="category-hub"><h2>Study buckets</h2><p>I grouped the words into intuitive buckets. Tap a bucket to list only that category.</p><div class="chips">
+<button class="chip active" type="button" data-category="all"><b>All cards</b><small>180 cards</small></button>
+<button class="chip" type="button" data-category="Word parts: prefixes, suffixes, roots"><b>Word parts: prefixes, suffixes, roots</b><small>36 cards · prefixes/suffixes/roots</small></button>
+<button class="chip" type="button" data-category="Body parts, organs &amp; body roots"><b>Body parts, organs &amp; body roots</b><small>43 cards · anatomy roots and body structures</small></button>
+<button class="chip" type="button" data-category="Body position, planes, cavities &amp; regions"><b>Body position, planes, cavities &amp; regions</b><small>15 cards · direction and location terms</small></button>
+<button class="chip" type="button" data-category="Cells, genes &amp; study of the body"><b>Cells, genes &amp; study of the body</b><small>13 cards · cells/genetics/study fields</small></button>
+<button class="chip" type="button" data-category="Tissues, cells &amp; growth changes"><b>Tissues, cells &amp; growth changes</b><small>14 cards · tissues and growth/change words</small></button>
+<button class="chip" type="button" data-category="Diseases, disorders &amp; diagnosis"><b>Diseases, disorders &amp; diagnosis</b><small>23 cards · conditions and diagnosis words</small></button>
+<button class="chip" type="button" data-category="Infection spread &amp; epidemiology"><b>Infection spread &amp; epidemiology</b><small>7 cards · outbreak/spread words</small></button>
+<button class="chip" type="button" data-category="Clinical care, symptoms, wounds &amp; exams"><b>Clinical care, symptoms, wounds &amp; exams</b><small>11 cards · assessment, symptoms, wounds, triage</small></button>
+<button class="chip" type="button" data-category="Look-alike / easy to mix up"><b>Look-alike / easy to mix up</b><small>15 cards · easy-confusing words</small></button>
+<button class="chip" type="button" data-category="General medical vocabulary"><b>General medical vocabulary</b><small>3 cards · leftover useful vocab</small></button>
+</div></section>
 
   <h2 class="section-title" id="cards">Tap-to-reveal cards</h2>
-  <details class="card" id="card-1" data-text="-algia pain, suffering">
+  <details class="card" id="card-1" data-category="Word parts: prefixes, suffixes, roots" data-text="-algia pain, suffering">
   <summary><span class="num">1</span><span class="term">-algia</span><span class="tap">tap</span></summary>
   <div class="definition">pain, suffering</div>
 </details>
-<details class="card" id="card-2" data-text="dys- bad, painful, difficult">
+<details class="card" id="card-2" data-category="Word parts: prefixes, suffixes, roots" data-text="dys- bad, painful, difficult">
   <summary><span class="num">2</span><span class="term">dys-</span><span class="tap">tap</span></summary>
   <div class="definition">bad, painful, difficult</div>
 </details>
-<details class="card" id="card-3" data-text="-ectomy surgical removal">
+<details class="card" id="card-3" data-category="Word parts: prefixes, suffixes, roots" data-text="-ectomy surgical removal">
   <summary><span class="num">3</span><span class="term">-ectomy</span><span class="tap">tap</span></summary>
   <div class="definition">surgical removal</div>
 </details>
-<details class="card" id="card-4" data-text="hyper- excessive">
+<details class="card" id="card-4" data-category="Word parts: prefixes, suffixes, roots" data-text="hyper- excessive">
   <summary><span class="num">4</span><span class="term">Hyper-</span><span class="tap">tap</span></summary>
   <div class="definition">excessive</div>
 </details>
-<details class="card" id="card-5" data-text="hypo- deficient, decreased">
+<details class="card" id="card-5" data-category="Word parts: prefixes, suffixes, roots" data-text="hypo- deficient, decreased">
   <summary><span class="num">5</span><span class="term">Hypo-</span><span class="tap">tap</span></summary>
   <div class="definition">deficient, decreased</div>
 </details>
-<details class="card" id="card-6" data-text="-itis inflammation">
+<details class="card" id="card-6" data-category="Word parts: prefixes, suffixes, roots" data-text="-itis inflammation">
   <summary><span class="num">6</span><span class="term">-itis</span><span class="tap">tap</span></summary>
   <div class="definition">inflammation</div>
 </details>
-<details class="card" id="card-7" data-text="-osis abnormal condition">
+<details class="card" id="card-7" data-category="Word parts: prefixes, suffixes, roots" data-text="-osis abnormal condition">
   <summary><span class="num">7</span><span class="term">-osis</span><span class="tap">tap</span></summary>
   <div class="definition">abnormal condition</div>
 </details>
-<details class="card" id="card-8" data-text="-ostomy surgically create an opening">
+<details class="card" id="card-8" data-category="Word parts: prefixes, suffixes, roots" data-text="-ostomy surgically create an opening">
   <summary><span class="num">8</span><span class="term">-ostomy</span><span class="tap">tap</span></summary>
   <div class="definition">surgically create an opening</div>
 </details>
-<details class="card" id="card-9" data-text="-otomy surgical incision">
+<details class="card" id="card-9" data-category="Word parts: prefixes, suffixes, roots" data-text="-otomy surgical incision">
   <summary><span class="num">9</span><span class="term">-otomy</span><span class="tap">tap</span></summary>
   <div class="definition">surgical incision</div>
 </details>
-<details class="card" id="card-10" data-text="-plasty surgical repair">
+<details class="card" id="card-10" data-category="Word parts: prefixes, suffixes, roots" data-text="-plasty surgical repair">
   <summary><span class="num">10</span><span class="term">-plasty</span><span class="tap">tap</span></summary>
   <div class="definition">surgical repair</div>
 </details>
-<details class="card" id="card-11" data-text="-rrhage bleeding, abnormal excessive fluid discharge">
+<details class="card" id="card-11" data-category="Word parts: prefixes, suffixes, roots" data-text="-rrhage bleeding, abnormal excessive fluid discharge">
   <summary><span class="num">11</span><span class="term">-rrhage</span><span class="tap">tap</span></summary>
   <div class="definition">bleeding, abnormal excessive fluid discharge</div>
 </details>
-<details class="card" id="card-12" data-text="-rraphy surgical suturing">
+<details class="card" id="card-12" data-category="Word parts: prefixes, suffixes, roots" data-text="-rraphy surgical suturing">
   <summary><span class="num">12</span><span class="term">-rraphy</span><span class="tap">tap</span></summary>
   <div class="definition">surgical suturing</div>
 </details>
-<details class="card" id="card-13" data-text="-rrhea flow, discharge">
+<details class="card" id="card-13" data-category="Word parts: prefixes, suffixes, roots" data-text="-rrhea flow, discharge">
   <summary><span class="num">13</span><span class="term">-rrhea</span><span class="tap">tap</span></summary>
   <div class="definition">flow, discharge</div>
 </details>
-<details class="card" id="card-14" data-text="-rrhexis rupture">
+<details class="card" id="card-14" data-category="Word parts: prefixes, suffixes, roots" data-text="-rrhexis rupture">
   <summary><span class="num">14</span><span class="term">-rrhexis</span><span class="tap">tap</span></summary>
   <div class="definition">rupture</div>
 </details>
-<details class="card" id="card-15" data-text="-sclerosis abnormal hardening">
+<details class="card" id="card-15" data-category="Word parts: prefixes, suffixes, roots" data-text="-sclerosis abnormal hardening">
   <summary><span class="num">15</span><span class="term">-sclerosis</span><span class="tap">tap</span></summary>
   <div class="definition">abnormal hardening</div>
 </details>
-<details class="card" id="card-16" data-text="necrosis tissue death">
+<details class="card" id="card-16" data-category="Word parts: prefixes, suffixes, roots" data-text="necrosis tissue death">
   <summary><span class="num">16</span><span class="term">necrosis</span><span class="tap">tap</span></summary>
   <div class="definition">tissue death</div>
 </details>
-<details class="card" id="card-17" data-text="-malacia abnormal softening">
+<details class="card" id="card-17" data-category="Word parts: prefixes, suffixes, roots" data-text="-malacia abnormal softening">
   <summary><span class="num">17</span><span class="term">-malacia</span><span class="tap">tap</span></summary>
   <div class="definition">abnormal softening</div>
 </details>
-<details class="card" id="card-18" data-text="myel/o spinal cord, bone marrow">
+<details class="card" id="card-18" data-category="Body parts, organs &amp; body roots" data-text="myel/o spinal cord, bone marrow">
   <summary><span class="num">18</span><span class="term">myel/o</span><span class="tap">tap</span></summary>
   <div class="definition">spinal cord, bone marrow</div>
 </details>
-<details class="card" id="card-19" data-text="oste/o bone">
+<details class="card" id="card-19" data-category="Body parts, organs &amp; body roots" data-text="oste/o bone">
   <summary><span class="num">19</span><span class="term">oste/o</span><span class="tap">tap</span></summary>
   <div class="definition">bone</div>
 </details>
-<details class="card" id="card-20" data-text="neur/o nerve">
+<details class="card" id="card-20" data-category="Body parts, organs &amp; body roots" data-text="neur/o nerve">
   <summary><span class="num">20</span><span class="term">neur/o</span><span class="tap">tap</span></summary>
   <div class="definition">Nerve</div>
 </details>
-<details class="card" id="card-21" data-text="arthr/o joint">
+<details class="card" id="card-21" data-category="Body parts, organs &amp; body roots" data-text="arthr/o joint">
   <summary><span class="num">21</span><span class="term">Arthr/o</span><span class="tap">tap</span></summary>
   <div class="definition">joint</div>
 </details>
-<details class="card" id="card-22" data-text="cyan/o blue">
+<details class="card" id="card-22" data-category="Body parts, organs &amp; body roots" data-text="cyan/o blue">
   <summary><span class="num">22</span><span class="term">cyan/o</span><span class="tap">tap</span></summary>
   <div class="definition">blue</div>
 </details>
-<details class="card" id="card-23" data-text="erythr/o red">
+<details class="card" id="card-23" data-category="Body parts, organs &amp; body roots" data-text="erythr/o red">
   <summary><span class="num">23</span><span class="term">erythr/o</span><span class="tap">tap</span></summary>
   <div class="definition">red</div>
 </details>
-<details class="card" id="card-24" data-text="leuk/o white">
+<details class="card" id="card-24" data-category="Body parts, organs &amp; body roots" data-text="leuk/o white">
   <summary><span class="num">24</span><span class="term">leuk/o</span><span class="tap">tap</span></summary>
   <div class="definition">White</div>
 </details>
-<details class="card" id="card-25" data-text="melan/o black">
+<details class="card" id="card-25" data-category="Body parts, organs &amp; body roots" data-text="melan/o black">
   <summary><span class="num">25</span><span class="term">Melan/o</span><span class="tap">tap</span></summary>
   <div class="definition">Black</div>
 </details>
-<details class="card" id="card-26" data-text="poli/o gray">
+<details class="card" id="card-26" data-category="Body parts, organs &amp; body roots" data-text="poli/o gray">
   <summary><span class="num">26</span><span class="term">poli/o</span><span class="tap">tap</span></summary>
   <div class="definition">gray</div>
 </details>
-<details class="card" id="card-27" data-text="tonsill/o tonsils">
+<details class="card" id="card-27" data-category="Body parts, organs &amp; body roots" data-text="tonsill/o tonsils">
   <summary><span class="num">27</span><span class="term">tonsill/o</span><span class="tap">tap</span></summary>
   <div class="definition">tonsils</div>
 </details>
-<details class="card" id="card-28" data-text="crani/o skull">
+<details class="card" id="card-28" data-category="Body parts, organs &amp; body roots" data-text="crani/o skull">
   <summary><span class="num">28</span><span class="term">crani/o</span><span class="tap">tap</span></summary>
   <div class="definition">skull</div>
 </details>
-<details class="card" id="card-29" data-text="arteri/o, arter/o word root for artery">
+<details class="card" id="card-29" data-category="Body parts, organs &amp; body roots" data-text="arteri/o, arter/o word root for artery">
   <summary><span class="num">29</span><span class="term">arteri/o, arter/o</span><span class="tap">tap</span></summary>
   <div class="definition">word root for artery</div>
 </details>
-<details class="card" id="card-30" data-text="-megaly enlargement">
+<details class="card" id="card-30" data-category="Word parts: prefixes, suffixes, roots" data-text="-megaly enlargement">
   <summary><span class="num">30</span><span class="term">-megaly</span><span class="tap">tap</span></summary>
   <div class="definition">enlargement</div>
 </details>
-<details class="card" id="card-31" data-text="-dynia pain">
+<details class="card" id="card-31" data-category="Word parts: prefixes, suffixes, roots" data-text="-dynia pain">
   <summary><span class="num">31</span><span class="term">-dynia</span><span class="tap">tap</span></summary>
   <div class="definition">pain</div>
 </details>
-<details class="card" id="card-32" data-text="costal ribs">
+<details class="card" id="card-32" data-category="Body parts, organs &amp; body roots" data-text="costal ribs">
   <summary><span class="num">32</span><span class="term">costal</span><span class="tap">tap</span></summary>
   <div class="definition">ribs</div>
 </details>
-<details class="card" id="card-33" data-text="sub under, below">
+<details class="card" id="card-33" data-category="Word parts: prefixes, suffixes, roots" data-text="sub under, below">
   <summary><span class="num">33</span><span class="term">sub</span><span class="tap">tap</span></summary>
   <div class="definition">under, below</div>
 </details>
-<details class="card" id="card-34" data-text="supra- above, upper">
+<details class="card" id="card-34" data-category="Word parts: prefixes, suffixes, roots" data-text="supra- above, upper">
   <summary><span class="num">34</span><span class="term">supra-</span><span class="tap">tap</span></summary>
   <div class="definition">above, upper</div>
 </details>
-<details class="card" id="card-35" data-text="abdominal cavity contains primarily the major organs of digestion">
+<details class="card" id="card-35" data-category="Body parts, organs &amp; body roots" data-text="abdominal cavity contains primarily the major organs of digestion">
   <summary><span class="num">35</span><span class="term">abdominal cavity</span><span class="tap">tap</span></summary>
   <div class="definition">contains primarily the major organs of digestion</div>
 </details>
-<details class="card" id="card-36" data-text="-scropy visual examination">
+<details class="card" id="card-36" data-category="General medical vocabulary" data-text="-scropy visual examination">
   <summary><span class="num">36</span><span class="term">-scropy</span><span class="tap">tap</span></summary>
   <div class="definition">visual examination</div>
 </details>
-<details class="card" id="card-37" data-text="my/o muscle">
+<details class="card" id="card-37" data-category="Body parts, organs &amp; body roots" data-text="my/o muscle">
   <summary><span class="num">37</span><span class="term">my/o</span><span class="tap">tap</span></summary>
   <div class="definition">muscle</div>
 </details>
-<details class="card" id="card-38" data-text="-graphy the process of producing a picture or record">
+<details class="card" id="card-38" data-category="General medical vocabulary" data-text="-graphy the process of producing a picture or record">
   <summary><span class="num">38</span><span class="term">-graphy</span><span class="tap">tap</span></summary>
   <div class="definition">the process of producing a picture or record</div>
 </details>
-<details class="card" id="card-39" data-text="hem/o blood">
+<details class="card" id="card-39" data-category="Body parts, organs &amp; body roots" data-text="hem/o blood">
   <summary><span class="num">39</span><span class="term">hem/o</span><span class="tap">tap</span></summary>
   <div class="definition">blood</div>
 </details>
-<details class="card" id="card-40" data-text="ab away from">
+<details class="card" id="card-40" data-category="Word parts: prefixes, suffixes, roots" data-text="ab away from">
   <summary><span class="num">40</span><span class="term">ab</span><span class="tap">tap</span></summary>
   <div class="definition">away from</div>
 </details>
-<details class="card" id="card-41" data-text="dextr/o right side">
+<details class="card" id="card-41" data-category="Body parts, organs &amp; body roots" data-text="dextr/o right side">
   <summary><span class="num">41</span><span class="term">dextr/o</span><span class="tap">tap</span></summary>
   <div class="definition">right side</div>
 </details>
-<details class="card" id="card-42" data-text="ex- out, away from">
+<details class="card" id="card-42" data-category="Word parts: prefixes, suffixes, roots" data-text="ex- out, away from">
   <summary><span class="num">42</span><span class="term">Ex-</span><span class="tap">tap</span></summary>
   <div class="definition">out, away from</div>
 </details>
-<details class="card" id="card-43" data-text="endo- within, inner">
+<details class="card" id="card-43" data-category="Word parts: prefixes, suffixes, roots" data-text="endo- within, inner">
   <summary><span class="num">43</span><span class="term">Endo-</span><span class="tap">tap</span></summary>
   <div class="definition">within, inner</div>
 </details>
-<details class="card" id="card-44" data-text="inter between">
+<details class="card" id="card-44" data-category="Word parts: prefixes, suffixes, roots" data-text="inter between">
   <summary><span class="num">44</span><span class="term">inter</span><span class="tap">tap</span></summary>
   <div class="definition">between</div>
 </details>
-<details class="card" id="card-45" data-text="intra within">
+<details class="card" id="card-45" data-category="Word parts: prefixes, suffixes, roots" data-text="intra within">
   <summary><span class="num">45</span><span class="term">intra</span><span class="tap">tap</span></summary>
   <div class="definition">within</div>
 </details>
-<details class="card" id="card-46" data-text="sinistr/o left side">
+<details class="card" id="card-46" data-category="Body parts, organs &amp; body roots" data-text="sinistr/o left side">
   <summary><span class="num">46</span><span class="term">sinistr/o</span><span class="tap">tap</span></summary>
   <div class="definition">left side</div>
 </details>
-<details class="card" id="card-47" data-text="mega-, megalo- large, great">
+<details class="card" id="card-47" data-category="Word parts: prefixes, suffixes, roots" data-text="mega-, megalo- large, great">
   <summary><span class="num">47</span><span class="term">mega-, megalo-</span><span class="tap">tap</span></summary>
   <div class="definition">large, great</div>
 </details>
-<details class="card" id="card-48" data-text="olig/o scanty, few">
+<details class="card" id="card-48" data-category="Word parts: prefixes, suffixes, roots" data-text="olig/o scanty, few">
   <summary><span class="num">48</span><span class="term">olig/o</span><span class="tap">tap</span></summary>
   <div class="definition">scanty, few</div>
 </details>
-<details class="card" id="card-49" data-text="ad toward">
+<details class="card" id="card-49" data-category="Word parts: prefixes, suffixes, roots" data-text="ad toward">
   <summary><span class="num">49</span><span class="term">ad</span><span class="tap">tap</span></summary>
   <div class="definition">toward</div>
 </details>
-<details class="card" id="card-50" data-text="eu- good, normal">
+<details class="card" id="card-50" data-category="Word parts: prefixes, suffixes, roots" data-text="eu- good, normal">
   <summary><span class="num">50</span><span class="term">Eu-</span><span class="tap">tap</span></summary>
   <div class="definition">good, normal</div>
 </details>
-<details class="card" id="card-51" data-text="sign objective evidence of disease such as a fever">
+<details class="card" id="card-51" data-category="Diseases, disorders &amp; diagnosis" data-text="sign objective evidence of disease such as a fever">
   <summary><span class="num">51</span><span class="term">sign</span><span class="tap">tap</span></summary>
   <div class="definition">objective evidence of disease such as a fever</div>
 </details>
-<details class="card" id="card-52" data-text="different diagnosis the process of differentiating between two or more conditions that similar signs or symptoms">
+<details class="card" id="card-52" data-category="Look-alike / easy to mix up" data-text="different diagnosis the process of differentiating between two or more conditions that similar signs or symptoms">
   <summary><span class="num">52</span><span class="term">Different diagnosis</span><span class="tap">tap</span></summary>
   <div class="definition">The process of differentiating Between two or more conditions that similar signs or symptoms</div>
 </details>
-<details class="card" id="card-53" data-text="eponym a disease, structure, operation, or procedure named for the person who discovered or described it first">
+<details class="card" id="card-53" data-category="Diseases, disorders &amp; diagnosis" data-text="eponym a disease, structure, operation, or procedure named for the person who discovered or described it first">
   <summary><span class="num">53</span><span class="term">eponym</span><span class="tap">tap</span></summary>
   <div class="definition">a disease, structure, operation, or procedure named for the person who discovered or described it first</div>
 </details>
-<details class="card" id="card-54" data-text="syndrome a group of symptoms">
+<details class="card" id="card-54" data-category="Diseases, disorders &amp; diagnosis" data-text="syndrome a group of symptoms">
   <summary><span class="num">54</span><span class="term">syndrome</span><span class="tap">tap</span></summary>
   <div class="definition">a group of symptoms</div>
 </details>
-<details class="card" id="card-55" data-text="acute a condition with a rapid onset with a short course.">
+<details class="card" id="card-55" data-category="Diseases, disorders &amp; diagnosis" data-text="acute a condition with a rapid onset with a short course.">
   <summary><span class="num">55</span><span class="term">acute</span><span class="tap">tap</span></summary>
   <div class="definition">A condition with a rapid onset with a short course.</div>
 </details>
-<details class="card" id="card-56" data-text="remission the temporary, partial, or complete disappearance of the symptoms of a disease without having achieved a cure">
+<details class="card" id="card-56" data-category="Diseases, disorders &amp; diagnosis" data-text="remission the temporary, partial, or complete disappearance of the symptoms of a disease without having achieved a cure">
   <summary><span class="num">56</span><span class="term">remission</span><span class="tap">tap</span></summary>
   <div class="definition">the temporary, partial, or complete disappearance of the symptoms of a disease without having achieved a cure</div>
 </details>
-<details class="card" id="card-57" data-text="prognosis a prediction of the course of a disease">
+<details class="card" id="card-57" data-category="Diseases, disorders &amp; diagnosis" data-text="prognosis a prediction of the course of a disease">
   <summary><span class="num">57</span><span class="term">prognosis</span><span class="tap">tap</span></summary>
   <div class="definition">a prediction of the course of a disease</div>
 </details>
-<details class="card" id="card-58" data-text="pyrosis heartburn">
+<details class="card" id="card-58" data-category="Look-alike / easy to mix up" data-text="pyrosis heartburn">
   <summary><span class="num">58</span><span class="term">pyrosis</span><span class="tap">tap</span></summary>
   <div class="definition">heartburn</div>
 </details>
-<details class="card" id="card-59" data-text="fissure an opening; a groove; a split">
+<details class="card" id="card-59" data-category="Clinical care, symptoms, wounds &amp; exams" data-text="fissure an opening; a groove; a split">
   <summary><span class="num">59</span><span class="term">fissure</span><span class="tap">tap</span></summary>
   <div class="definition">an opening; a groove; a split</div>
 </details>
-<details class="card" id="card-60" data-text="fisula abnormal passageway between two organs or between an internal organ and the body surface">
+<details class="card" id="card-60" data-category="Clinical care, symptoms, wounds &amp; exams" data-text="fisula abnormal passageway between two organs or between an internal organ and the body surface">
   <summary><span class="num">60</span><span class="term">Fisula</span><span class="tap">tap</span></summary>
   <div class="definition">abnormal passageway between two organs or between an internal organ and the body surface</div>
 </details>
-<details class="card" id="card-61" data-text="ileum the last and longest portion of the small intestine">
+<details class="card" id="card-61" data-category="Look-alike / easy to mix up" data-text="ileum the last and longest portion of the small intestine">
   <summary><span class="num">61</span><span class="term">ileum</span><span class="tap">tap</span></summary>
   <div class="definition">the last and longest portion of the small intestine</div>
 </details>
-<details class="card" id="card-62" data-text="ilium part of the hip bone">
+<details class="card" id="card-62" data-category="Look-alike / easy to mix up" data-text="ilium part of the hip bone">
   <summary><span class="num">62</span><span class="term">ilium</span><span class="tap">tap</span></summary>
   <div class="definition">part of the hip bone</div>
 </details>
-<details class="card" id="card-63" data-text="meningitis inflammation and infection of the meninges">
+<details class="card" id="card-63" data-category="Diseases, disorders &amp; diagnosis" data-text="meningitis inflammation and infection of the meninges">
   <summary><span class="num">63</span><span class="term">Meningitis</span><span class="tap">tap</span></summary>
   <div class="definition">inflammation and infection of the meninges</div>
 </details>
-<details class="card" id="card-64" data-text="laceration jagged wound">
+<details class="card" id="card-64" data-category="Clinical care, symptoms, wounds &amp; exams" data-text="laceration jagged wound">
   <summary><span class="num">64</span><span class="term">laceration</span><span class="tap">tap</span></summary>
   <div class="definition">jagged wound</div>
 </details>
-<details class="card" id="card-65" data-text="malaise a feeling of depression, uneasiness, or queasiness">
+<details class="card" id="card-65" data-category="Clinical care, symptoms, wounds &amp; exams" data-text="malaise a feeling of depression, uneasiness, or queasiness">
   <summary><span class="num">65</span><span class="term">malaise</span><span class="tap">tap</span></summary>
   <div class="definition">a feeling of depression, uneasiness, or queasiness</div>
 </details>
-<details class="card" id="card-66" data-text="exudate fluid, such as pus, that leaks out of an infected wound">
+<details class="card" id="card-66" data-category="Clinical care, symptoms, wounds &amp; exams" data-text="exudate fluid, such as pus, that leaks out of an infected wound">
   <summary><span class="num">66</span><span class="term">Exudate</span><span class="tap">tap</span></summary>
   <div class="definition">fluid, such as pus, that leaks out of an infected wound</div>
 </details>
-<details class="card" id="card-67" data-text="lesion a pathologic change of the tissues due to disease or injury">
+<details class="card" id="card-67" data-category="Clinical care, symptoms, wounds &amp; exams" data-text="lesion a pathologic change of the tissues due to disease or injury">
   <summary><span class="num">67</span><span class="term">lesion</span><span class="tap">tap</span></summary>
   <div class="definition">a pathologic change of the tissues due to disease or injury</div>
 </details>
-<details class="card" id="card-68" data-text="mucous membrane membrane that secretes mucus that lubricates the surface of organs and keeps them moist.">
+<details class="card" id="card-68" data-category="Clinical care, symptoms, wounds &amp; exams" data-text="mucous membrane membrane that secretes mucus that lubricates the surface of organs and keeps them moist.">
   <summary><span class="num">68</span><span class="term">mucous membrane</span><span class="tap">tap</span></summary>
   <div class="definition">Membrane that secretes mucus that lubricates the surface of organs and keeps them moist.</div>
 </details>
-<details class="card" id="card-69" data-text="myc/o fungus">
+<details class="card" id="card-69" data-category="Body parts, organs &amp; body roots" data-text="myc/o fungus">
   <summary><span class="num">69</span><span class="term">myc/o</span><span class="tap">tap</span></summary>
   <div class="definition">fungus</div>
 </details>
-<details class="card" id="card-70" data-text="mycosis any abnormal condition or disease caused by a fungus">
+<details class="card" id="card-70" data-category="Diseases, disorders &amp; diagnosis" data-text="mycosis any abnormal condition or disease caused by a fungus">
   <summary><span class="num">70</span><span class="term">mycosis</span><span class="tap">tap</span></summary>
   <div class="definition">any abnormal condition or disease caused by a fungus</div>
 </details>
-<details class="card" id="card-71" data-text="neonatology study of newborns and the treatment of their disorders">
+<details class="card" id="card-71" data-category="Clinical care, symptoms, wounds &amp; exams" data-text="neonatology study of newborns and the treatment of their disorders">
   <summary><span class="num">71</span><span class="term">neonatology</span><span class="tap">tap</span></summary>
   <div class="definition">study of newborns and the treatment of their disorders</div>
 </details>
-<details class="card" id="card-72" data-text="palpation to examine by touch">
+<details class="card" id="card-72" data-category="Look-alike / easy to mix up" data-text="palpation to examine by touch">
   <summary><span class="num">72</span><span class="term">Palpation</span><span class="tap">tap</span></summary>
   <div class="definition">to examine by touch</div>
 </details>
-<details class="card" id="card-73" data-text="palpitation pounding or racing heart">
+<details class="card" id="card-73" data-category="Look-alike / easy to mix up" data-text="palpitation pounding or racing heart">
   <summary><span class="num">73</span><span class="term">palpitation</span><span class="tap">tap</span></summary>
   <div class="definition">pounding or racing heart</div>
 </details>
-<details class="card" id="card-74" data-text="pyo pus">
+<details class="card" id="card-74" data-category="Body parts, organs &amp; body roots" data-text="pyo pus">
   <summary><span class="num">74</span><span class="term">pyo</span><span class="tap">tap</span></summary>
   <div class="definition">pus</div>
 </details>
-<details class="card" id="card-75" data-text="pyoderma skin disease containing pus">
+<details class="card" id="card-75" data-category="Diseases, disorders &amp; diagnosis" data-text="pyoderma skin disease containing pus">
   <summary><span class="num">75</span><span class="term">pyoderma</span><span class="tap">tap</span></summary>
   <div class="definition">skin disease containing pus</div>
 </details>
-<details class="card" id="card-76" data-text="pyel/o renal pelvis">
+<details class="card" id="card-76" data-category="Body parts, organs &amp; body roots" data-text="pyel/o renal pelvis">
   <summary><span class="num">76</span><span class="term">pyel/o</span><span class="tap">tap</span></summary>
   <div class="definition">renal pelvis</div>
 </details>
-<details class="card" id="card-77" data-text="pyelitis inflammation of the renal pelvis">
+<details class="card" id="card-77" data-category="Diseases, disorders &amp; diagnosis" data-text="pyelitis inflammation of the renal pelvis">
   <summary><span class="num">77</span><span class="term">pyelitis</span><span class="tap">tap</span></summary>
   <div class="definition">inflammation of the renal pelvis</div>
 </details>
-<details class="card" id="card-78" data-text="triage the medical screening of patients to determine their relative priority of need and the proper place of treatment">
+<details class="card" id="card-78" data-category="Clinical care, symptoms, wounds &amp; exams" data-text="triage the medical screening of patients to determine their relative priority of need and the proper place of treatment">
   <summary><span class="num">78</span><span class="term">Triage</span><span class="tap">tap</span></summary>
   <div class="definition">the medical screening of patients to determine their relative priority of need and the proper place of treatment</div>
 </details>
-<details class="card" id="card-79" data-text="trauma wound or injury">
+<details class="card" id="card-79" data-category="Clinical care, symptoms, wounds &amp; exams" data-text="trauma wound or injury">
   <summary><span class="num">79</span><span class="term">trauma</span><span class="tap">tap</span></summary>
   <div class="definition">wound or injury</div>
 </details>
-<details class="card" id="card-80" data-text="viral pertaining to a virus">
+<details class="card" id="card-80" data-category="Look-alike / easy to mix up" data-text="viral pertaining to a virus">
   <summary><span class="num">80</span><span class="term">viral</span><span class="tap">tap</span></summary>
   <div class="definition">pertaining to a virus</div>
 </details>
-<details class="card" id="card-81" data-text="virile masculine; manly">
+<details class="card" id="card-81" data-category="Look-alike / easy to mix up" data-text="virile masculine; manly">
   <summary><span class="num">81</span><span class="term">virile</span><span class="tap">tap</span></summary>
   <div class="definition">masculine; manly</div>
 </details>
-<details class="card" id="card-82" data-text="eupnea normal breathing">
+<details class="card" id="card-82" data-category="Body parts, organs &amp; body roots" data-text="eupnea normal breathing">
   <summary><span class="num">82</span><span class="term">eupnea</span><span class="tap">tap</span></summary>
   <div class="definition">normal breathing</div>
 </details>
-<details class="card" id="card-83" data-text="tension pressure">
+<details class="card" id="card-83" data-category="Body parts, organs &amp; body roots" data-text="tension pressure">
   <summary><span class="num">83</span><span class="term">tension</span><span class="tap">tap</span></summary>
   <div class="definition">pressure</div>
 </details>
-<details class="card" id="card-84" data-text="interstitial between, but not within, the parts of a tissue">
+<details class="card" id="card-84" data-category="Body parts, organs &amp; body roots" data-text="interstitial between, but not within, the parts of a tissue">
   <summary><span class="num">84</span><span class="term">interstitial</span><span class="tap">tap</span></summary>
   <div class="definition">between, but not within, the parts of a tissue</div>
 </details>
-<details class="card" id="card-85" data-text="instramuscular within the muscle">
+<details class="card" id="card-85" data-category="Body parts, organs &amp; body roots" data-text="instramuscular within the muscle">
   <summary><span class="num">85</span><span class="term">Instramuscular</span><span class="tap">tap</span></summary>
   <div class="definition">within the muscle</div>
 </details>
-<details class="card" id="card-86" data-text="anatomy the study of body structure">
+<details class="card" id="card-86" data-category="Cells, genes &amp; study of the body" data-text="anatomy the study of body structure">
   <summary><span class="num">86</span><span class="term">Anatomy</span><span class="tap">tap</span></summary>
   <div class="definition">The study of body structure</div>
 </details>
-<details class="card" id="card-87" data-text="physiology the study of body function">
+<details class="card" id="card-87" data-category="Cells, genes &amp; study of the body" data-text="physiology the study of body function">
   <summary><span class="num">87</span><span class="term">Physiology</span><span class="tap">tap</span></summary>
   <div class="definition">The study of body function</div>
 </details>
-<details class="card" id="card-88" data-text="aden/o gland">
+<details class="card" id="card-88" data-category="Body parts, organs &amp; body roots" data-text="aden/o gland">
   <summary><span class="num">88</span><span class="term">aden/o</span><span class="tap">tap</span></summary>
   <div class="definition">gland</div>
 </details>
-<details class="card" id="card-89" data-text="adip/o fat">
+<details class="card" id="card-89" data-category="Body parts, organs &amp; body roots" data-text="adip/o fat">
   <summary><span class="num">89</span><span class="term">adip/o</span><span class="tap">tap</span></summary>
   <div class="definition">fat</div>
 </details>
-<details class="card" id="card-90" data-text="anter/o before, in front">
+<details class="card" id="card-90" data-category="Body parts, organs &amp; body roots" data-text="anter/o before, in front">
   <summary><span class="num">90</span><span class="term">anter/o</span><span class="tap">tap</span></summary>
   <div class="definition">before, in front</div>
 </details>
-<details class="card" id="card-91" data-text="midsagittal plane divides the body into equal right and left sides">
+<details class="card" id="card-91" data-category="Look-alike / easy to mix up" data-text="midsagittal plane divides the body into equal right and left sides">
   <summary><span class="num">91</span><span class="term">midsagittal plane</span><span class="tap">tap</span></summary>
   <div class="definition">divides the body into equal right and left sides</div>
 </details>
-<details class="card" id="card-92" data-text="sagittal plane divides body into left and right">
+<details class="card" id="card-92" data-category="Look-alike / easy to mix up" data-text="sagittal plane divides body into left and right">
   <summary><span class="num">92</span><span class="term">sagittal plane</span><span class="tap">tap</span></summary>
   <div class="definition">divides body into left and right</div>
 </details>
-<details class="card" id="card-93" data-text="transverse plane horizontal division of the body into upper and lower portions">
+<details class="card" id="card-93" data-category="Body position, planes, cavities &amp; regions" data-text="transverse plane horizontal division of the body into upper and lower portions">
   <summary><span class="num">93</span><span class="term">transverse plane</span><span class="tap">tap</span></summary>
   <div class="definition">horizontal division of the body into upper and lower portions</div>
 </details>
-<details class="card" id="card-94" data-text="caud/o lower part of body, tail">
+<details class="card" id="card-94" data-category="Body parts, organs &amp; body roots" data-text="caud/o lower part of body, tail">
   <summary><span class="num">94</span><span class="term">caud/o</span><span class="tap">tap</span></summary>
   <div class="definition">lower part of body, tail</div>
 </details>
-<details class="card" id="card-95" data-text="cephal/o head">
+<details class="card" id="card-95" data-category="Body parts, organs &amp; body roots" data-text="cephal/o head">
   <summary><span class="num">95</span><span class="term">Cephal/o</span><span class="tap">tap</span></summary>
   <div class="definition">head</div>
 </details>
-<details class="card" id="card-96" data-text="cyt/o, -cyte (root, suffix) cell">
+<details class="card" id="card-96" data-category="Tissues, cells &amp; growth changes" data-text="cyt/o, -cyte (root, suffix) cell">
   <summary><span class="num">96</span><span class="term">cyt/o, -cyte (root, suffix)</span><span class="tap">tap</span></summary>
   <div class="definition">cell</div>
 </details>
-<details class="card" id="card-97" data-text="histology study of tissues">
+<details class="card" id="card-97" data-category="Cells, genes &amp; study of the body" data-text="histology study of tissues">
   <summary><span class="num">97</span><span class="term">Histology</span><span class="tap">tap</span></summary>
   <div class="definition">study of tissues</div>
 </details>
-<details class="card" id="card-98" data-text="end-, endo- within, inside">
+<details class="card" id="card-98" data-category="Word parts: prefixes, suffixes, roots" data-text="end-, endo- within, inside">
   <summary><span class="num">98</span><span class="term">end-, endo-</span><span class="tap">tap</span></summary>
   <div class="definition">within, inside</div>
 </details>
-<details class="card" id="card-99" data-text="proximal closer to the point of attachment, near midline">
+<details class="card" id="card-99" data-category="Body position, planes, cavities &amp; regions" data-text="proximal closer to the point of attachment, near midline">
   <summary><span class="num">99</span><span class="term">Proximal</span><span class="tap">tap</span></summary>
   <div class="definition">Closer to the point of attachment, near midline</div>
 </details>
-<details class="card" id="card-100" data-text="distal farther from the origin of a body part or the point of attachment of a limb to the body trunk">
+<details class="card" id="card-100" data-category="Body position, planes, cavities &amp; regions" data-text="distal farther from the origin of a body part or the point of attachment of a limb to the body trunk">
   <summary><span class="num">100</span><span class="term">Distal</span><span class="tap">tap</span></summary>
   <div class="definition">farther from the origin of a body part or the point of attachment of a limb to the body trunk</div>
 </details>
-<details class="card" id="card-101" data-text="medial toward the midline of the body">
+<details class="card" id="card-101" data-category="Body position, planes, cavities &amp; regions" data-text="medial toward the midline of the body">
   <summary><span class="num">101</span><span class="term">Medial</span><span class="tap">tap</span></summary>
   <div class="definition">Toward the midline of the body</div>
 </details>
-<details class="card" id="card-102" data-text="lateral away from the midline">
+<details class="card" id="card-102" data-category="Body position, planes, cavities &amp; regions" data-text="lateral away from the midline">
   <summary><span class="num">102</span><span class="term">Lateral</span><span class="tap">tap</span></summary>
   <div class="definition">away from the midline</div>
 </details>
-<details class="card" id="card-103" data-text="ventral cavity located along the front of the body, contains the body organs that sustain homeostasis">
+<details class="card" id="card-103" data-category="Body position, planes, cavities &amp; regions" data-text="ventral cavity located along the front of the body, contains the body organs that sustain homeostasis">
   <summary><span class="num">103</span><span class="term">ventral cavity</span><span class="tap">tap</span></summary>
   <div class="definition">located along the front of the body, contains the body organs that sustain homeostasis</div>
 </details>
-<details class="card" id="card-104" data-text="dorsal cavity includes the cranial and spinal cavities., back part of body">
+<details class="card" id="card-104" data-category="Body position, planes, cavities &amp; regions" data-text="dorsal cavity includes the cranial and spinal cavities., back part of body">
   <summary><span class="num">104</span><span class="term">dorsal cavity</span><span class="tap">tap</span></summary>
   <div class="definition">includes the cranial and spinal cavities., back part of body</div>
 </details>
-<details class="card" id="card-105" data-text="vertical plane an up-and-down plane that is a right angle to the horizon">
+<details class="card" id="card-105" data-category="Look-alike / easy to mix up" data-text="vertical plane an up-and-down plane that is a right angle to the horizon">
   <summary><span class="num">105</span><span class="term">vertical plane</span><span class="tap">tap</span></summary>
   <div class="definition">an up-and-down plane that is a right angle to the horizon</div>
 </details>
-<details class="card" id="card-106" data-text="horizontal plane (transverse) divides the body into upper and lower portions. rotation occurs within the horizontal plane">
+<details class="card" id="card-106" data-category="Look-alike / easy to mix up" data-text="horizontal plane (transverse) divides the body into upper and lower portions. rotation occurs within the horizontal plane">
   <summary><span class="num">106</span><span class="term">Horizontal Plane (transverse)</span><span class="tap">tap</span></summary>
   <div class="definition">divides the body into upper and lower portions. Rotation occurs within the horizontal plane</div>
 </details>
-<details class="card" id="card-107" data-text="anterior (ventral) front of the body">
+<details class="card" id="card-107" data-category="Look-alike / easy to mix up" data-text="anterior (ventral) front of the body">
   <summary><span class="num">107</span><span class="term">Anterior (ventral)</span><span class="tap">tap</span></summary>
   <div class="definition">front of the body</div>
 </details>
-<details class="card" id="card-108" data-text="superior higher on the body, nearer to the head">
+<details class="card" id="card-108" data-category="Body position, planes, cavities &amp; regions" data-text="superior higher on the body, nearer to the head">
   <summary><span class="num">108</span><span class="term">Superior</span><span class="tap">tap</span></summary>
   <div class="definition">Higher on the body, nearer to the head</div>
 </details>
-<details class="card" id="card-109" data-text="inferior lowermost, toward the feet">
+<details class="card" id="card-109" data-category="Body position, planes, cavities &amp; regions" data-text="inferior lowermost, toward the feet">
   <summary><span class="num">109</span><span class="term">Inferior</span><span class="tap">tap</span></summary>
   <div class="definition">Lowermost, toward the feet</div>
 </details>
-<details class="card" id="card-110" data-text="cephalic toward the head">
+<details class="card" id="card-110" data-category="Body position, planes, cavities &amp; regions" data-text="cephalic toward the head">
   <summary><span class="num">110</span><span class="term">Cephalic</span><span class="tap">tap</span></summary>
   <div class="definition">toward the head</div>
 </details>
-<details class="card" id="card-111" data-text="caudal toward the tail, lower part of body">
+<details class="card" id="card-111" data-category="Body position, planes, cavities &amp; regions" data-text="caudal toward the tail, lower part of body">
   <summary><span class="num">111</span><span class="term">Caudal</span><span class="tap">tap</span></summary>
   <div class="definition">toward the tail, lower part of body</div>
 </details>
-<details class="card" id="card-112" data-text="thoriac cavity chest">
+<details class="card" id="card-112" data-category="Body parts, organs &amp; body roots" data-text="thoriac cavity chest">
   <summary><span class="num">112</span><span class="term">thoriac cavity</span><span class="tap">tap</span></summary>
   <div class="definition">chest</div>
 </details>
-<details class="card" id="card-113" data-text="diaphragm a dome-shaped, muscular partition separating the thorax from the abdomen in mammals. it plays a major role in breathing, as its contraction increases the volume of the thorax and so inflates the lungs.">
+<details class="card" id="card-113" data-category="Body parts, organs &amp; body roots" data-text="diaphragm a dome-shaped, muscular partition separating the thorax from the abdomen in mammals. it plays a major role in breathing, as its contraction increases the volume of the thorax and so inflates the lungs.">
   <summary><span class="num">113</span><span class="term">Diaphragm</span><span class="tap">tap</span></summary>
   <div class="definition">a dome-shaped, muscular partition separating the thorax from the abdomen in mammals. It plays a major role in breathing, as its contraction increases the volume of the thorax and so inflates the lungs.</div>
 </details>
-<details class="card" id="card-114" data-text="epithelial tissue tissue that covers outside of the body and lines organs and cavities.">
+<details class="card" id="card-114" data-category="Tissues, cells &amp; growth changes" data-text="epithelial tissue tissue that covers outside of the body and lines organs and cavities.">
   <summary><span class="num">114</span><span class="term">epithelial tissue</span><span class="tap">tap</span></summary>
   <div class="definition">Tissue that covers outside of the body and lines organs and cavities.</div>
 </details>
-<details class="card" id="card-115" data-text="nervous tissue tissue that senses stimuli and transmits signals.">
+<details class="card" id="card-115" data-category="Tissues, cells &amp; growth changes" data-text="nervous tissue tissue that senses stimuli and transmits signals.">
   <summary><span class="num">115</span><span class="term">nervous tissue</span><span class="tap">tap</span></summary>
   <div class="definition">Tissue that senses stimuli and transmits signals.</div>
 </details>
-<details class="card" id="card-116" data-text="connective tissue a body tissue that provides support for the body and connects all of its parts">
+<details class="card" id="card-116" data-category="Tissues, cells &amp; growth changes" data-text="connective tissue a body tissue that provides support for the body and connects all of its parts">
   <summary><span class="num">116</span><span class="term">connective tissue</span><span class="tap">tap</span></summary>
   <div class="definition">A body tissue that provides support for the body and connects all of its parts</div>
 </details>
-<details class="card" id="card-117" data-text="muscular tissue contracts and moves the various parts of the body.">
+<details class="card" id="card-117" data-category="Tissues, cells &amp; growth changes" data-text="muscular tissue contracts and moves the various parts of the body.">
   <summary><span class="num">117</span><span class="term">muscular tissue</span><span class="tap">tap</span></summary>
   <div class="definition">Contracts and moves the various parts of the body.</div>
 </details>
-<details class="card" id="card-118" data-text="homeostasis a tendency to maintain a balanced or constant internal state; the regulation of any aspect of body chemistry, such as blood glucose, around a particular level (constant control)">
+<details class="card" id="card-118" data-category="General medical vocabulary" data-text="homeostasis a tendency to maintain a balanced or constant internal state; the regulation of any aspect of body chemistry, such as blood glucose, around a particular level (constant control)">
   <summary><span class="num">118</span><span class="term">Homeostasis</span><span class="tap">tap</span></summary>
   <div class="definition">A tendency to maintain a balanced or constant internal state; the regulation of any aspect of body chemistry, such as blood glucose, around a particular level (constant control)</div>
 </details>
-<details class="card" id="card-119" data-text="inguinal groin">
+<details class="card" id="card-119" data-category="Body parts, organs &amp; body roots" data-text="inguinal groin">
   <summary><span class="num">119</span><span class="term">Inguinal</span><span class="tap">tap</span></summary>
   <div class="definition">groin</div>
 </details>
-<details class="card" id="card-120" data-text="hypochondriac region to the right and left of the epigastric region">
+<details class="card" id="card-120" data-category="Body position, planes, cavities &amp; regions" data-text="hypochondriac region to the right and left of the epigastric region">
   <summary><span class="num">120</span><span class="term">hypochondriac region</span><span class="tap">tap</span></summary>
   <div class="definition">to the right and left of the epigastric region</div>
 </details>
-<details class="card" id="card-121" data-text="epigastric region located above the stomach">
+<details class="card" id="card-121" data-category="Body position, planes, cavities &amp; regions" data-text="epigastric region located above the stomach">
   <summary><span class="num">121</span><span class="term">epigastric region</span><span class="tap">tap</span></summary>
   <div class="definition">located above the stomach</div>
 </details>
-<details class="card" id="card-122" data-text="umbilical region belly button area">
+<details class="card" id="card-122" data-category="Body position, planes, cavities &amp; regions" data-text="umbilical region belly button area">
   <summary><span class="num">122</span><span class="term">umbilical region</span><span class="tap">tap</span></summary>
   <div class="definition">Belly button area</div>
 </details>
-<details class="card" id="card-123" data-text="hypogastric region located below the stomach (near pelvic)">
+<details class="card" id="card-123" data-category="Body position, planes, cavities &amp; regions" data-text="hypogastric region located below the stomach (near pelvic)">
   <summary><span class="num">123</span><span class="term">hypogastric region</span><span class="tap">tap</span></summary>
   <div class="definition">located below the stomach (near pelvic)</div>
 </details>
-<details class="card" id="card-124" data-text="peritoneum membrane that lines the abdominal cavity">
+<details class="card" id="card-124" data-category="Body parts, organs &amp; body roots" data-text="peritoneum membrane that lines the abdominal cavity">
   <summary><span class="num">124</span><span class="term">peritoneum</span><span class="tap">tap</span></summary>
   <div class="definition">membrane that lines the abdominal cavity</div>
 </details>
-<details class="card" id="card-125" data-text="parietal peritoneum the outer layer of the peritoneum that lines the interior of the abdominal wall">
+<details class="card" id="card-125" data-category="Body parts, organs &amp; body roots" data-text="parietal peritoneum the outer layer of the peritoneum that lines the interior of the abdominal wall">
   <summary><span class="num">125</span><span class="term">parietal peritoneum</span><span class="tap">tap</span></summary>
   <div class="definition">the outer layer of the peritoneum that lines the interior of the abdominal wall</div>
 </details>
-<details class="card" id="card-126" data-text="mesentery a fused double layer of the parietal peritoneum that attaches parts of the intestine to the interior abdominal wall">
+<details class="card" id="card-126" data-category="Body parts, organs &amp; body roots" data-text="mesentery a fused double layer of the parietal peritoneum that attaches parts of the intestine to the interior abdominal wall">
   <summary><span class="num">126</span><span class="term">mesentery</span><span class="tap">tap</span></summary>
   <div class="definition">a fused double layer of the parietal peritoneum that attaches parts of the intestine to the interior abdominal wall</div>
 </details>
-<details class="card" id="card-127" data-text="visceral peritoneum covers organs">
+<details class="card" id="card-127" data-category="Body parts, organs &amp; body roots" data-text="visceral peritoneum covers organs">
   <summary><span class="num">127</span><span class="term">visceral peritoneum</span><span class="tap">tap</span></summary>
   <div class="definition">covers organs</div>
 </details>
-<details class="card" id="card-128" data-text="retroperitoneal located behind the peritoneum">
+<details class="card" id="card-128" data-category="Body parts, organs &amp; body roots" data-text="retroperitoneal located behind the peritoneum">
   <summary><span class="num">128</span><span class="term">retroperitoneal</span><span class="tap">tap</span></summary>
   <div class="definition">located behind the peritoneum</div>
 </details>
-<details class="card" id="card-129" data-text="cell membrane surrounds and protects the cell">
+<details class="card" id="card-129" data-category="Cells, genes &amp; study of the body" data-text="cell membrane surrounds and protects the cell">
   <summary><span class="num">129</span><span class="term">cell membrane</span><span class="tap">tap</span></summary>
   <div class="definition">surrounds and protects the cell</div>
 </details>
-<details class="card" id="card-130" data-text="cytoplasm the portion of the cell outside the nucleus">
+<details class="card" id="card-130" data-category="Cells, genes &amp; study of the body" data-text="cytoplasm the portion of the cell outside the nucleus">
   <summary><span class="num">130</span><span class="term">Cytoplasm</span><span class="tap">tap</span></summary>
   <div class="definition">the portion of the cell outside the nucleus</div>
 </details>
-<details class="card" id="card-131" data-text="nucleus structure of cell , controls activities and helps cell divide">
+<details class="card" id="card-131" data-category="Cells, genes &amp; study of the body" data-text="nucleus structure of cell , controls activities and helps cell divide">
   <summary><span class="num">131</span><span class="term">Nucleus</span><span class="tap">tap</span></summary>
   <div class="definition">Structure of cell , controls activities and helps cell divide</div>
 </details>
-<details class="card" id="card-132" data-text="stem cells unspecialized cells that are able to renew themselves for long periods of time by cell division">
+<details class="card" id="card-132" data-category="Cells, genes &amp; study of the body" data-text="stem cells unspecialized cells that are able to renew themselves for long periods of time by cell division">
   <summary><span class="num">132</span><span class="term">stem cells</span><span class="tap">tap</span></summary>
   <div class="definition">unspecialized cells that are able to renew themselves for long periods of time by cell division</div>
 </details>
-<details class="card" id="card-133" data-text="gene a unit of heredity that is transferred from a parent to offspring and is held to determine some characteristic of the offspring.">
+<details class="card" id="card-133" data-category="Cells, genes &amp; study of the body" data-text="gene a unit of heredity that is transferred from a parent to offspring and is held to determine some characteristic of the offspring.">
   <summary><span class="num">133</span><span class="term">Gene</span><span class="tap">tap</span></summary>
   <div class="definition">a unit of heredity that is transferred from a parent to offspring and is held to determine some characteristic of the offspring.</div>
 </details>
-<details class="card" id="card-134" data-text="genetics the scientific study of heredity">
+<details class="card" id="card-134" data-category="Cells, genes &amp; study of the body" data-text="genetics the scientific study of heredity">
   <summary><span class="num">134</span><span class="term">Genetics</span><span class="tap">tap</span></summary>
   <div class="definition">The scientific study of heredity</div>
 </details>
-<details class="card" id="card-135" data-text="geneticist a specialist in genetics">
+<details class="card" id="card-135" data-category="Cells, genes &amp; study of the body" data-text="geneticist a specialist in genetics">
   <summary><span class="num">135</span><span class="term">geneticist</span><span class="tap">tap</span></summary>
   <div class="definition">a specialist in genetics</div>
 </details>
-<details class="card" id="card-136" data-text="recessive gene gene that is expressed only in the absence of a dominant gene">
+<details class="card" id="card-136" data-category="Cells, genes &amp; study of the body" data-text="recessive gene gene that is expressed only in the absence of a dominant gene">
   <summary><span class="num">136</span><span class="term">recessive gene</span><span class="tap">tap</span></summary>
   <div class="definition">gene that is expressed only in the absence of a dominant gene</div>
 </details>
-<details class="card" id="card-137" data-text="genome entire set of genes">
+<details class="card" id="card-137" data-category="Cells, genes &amp; study of the body" data-text="genome entire set of genes">
   <summary><span class="num">137</span><span class="term">Genome</span><span class="tap">tap</span></summary>
   <div class="definition">Entire set of genes</div>
 </details>
-<details class="card" id="card-138" data-text="epithelial tissue a body tissue that covers the surfaces of the body, inside and out">
+<details class="card" id="card-138" data-category="Tissues, cells &amp; growth changes" data-text="epithelial tissue a body tissue that covers the surfaces of the body, inside and out">
   <summary><span class="num">138</span><span class="term">epithelial tissue</span><span class="tap">tap</span></summary>
   <div class="definition">A body tissue that covers the surfaces of the body, inside and out</div>
 </details>
-<details class="card" id="card-139" data-text="muscle tissue tissue made of cells capable of contracting.">
+<details class="card" id="card-139" data-category="Tissues, cells &amp; growth changes" data-text="muscle tissue tissue made of cells capable of contracting.">
   <summary><span class="num">139</span><span class="term">muscle tissue</span><span class="tap">tap</span></summary>
   <div class="definition">Tissue made of cells capable of contracting.</div>
 </details>
-<details class="card" id="card-140" data-text="aplasia lack of development of an organ or tissue">
+<details class="card" id="card-140" data-category="Tissues, cells &amp; growth changes" data-text="aplasia lack of development of an organ or tissue">
   <summary><span class="num">140</span><span class="term">aplasia</span><span class="tap">tap</span></summary>
   <div class="definition">lack of development of an organ or tissue</div>
 </details>
-<details class="card" id="card-141" data-text="hypoplasia incomplete development of an organ or tissue">
+<details class="card" id="card-141" data-category="Tissues, cells &amp; growth changes" data-text="hypoplasia incomplete development of an organ or tissue">
   <summary><span class="num">141</span><span class="term">hypoplasia</span><span class="tap">tap</span></summary>
   <div class="definition">incomplete development of an organ or tissue</div>
 </details>
-<details class="card" id="card-142" data-text="anaplasia lack of differentiation">
+<details class="card" id="card-142" data-category="Tissues, cells &amp; growth changes" data-text="anaplasia lack of differentiation">
   <summary><span class="num">142</span><span class="term">anaplasia</span><span class="tap">tap</span></summary>
   <div class="definition">lack of differentiation</div>
 </details>
-<details class="card" id="card-143" data-text="carcin/o cancer">
+<details class="card" id="card-143" data-category="Diseases, disorders &amp; diagnosis" data-text="carcin/o cancer">
   <summary><span class="num">143</span><span class="term">carcin/o</span><span class="tap">tap</span></summary>
   <div class="definition">cancer</div>
 </details>
-<details class="card" id="card-144" data-text="malignant harmful">
+<details class="card" id="card-144" data-category="Diseases, disorders &amp; diagnosis" data-text="malignant harmful">
   <summary><span class="num">144</span><span class="term">malignant</span><span class="tap">tap</span></summary>
   <div class="definition">harmful</div>
 </details>
-<details class="card" id="card-145" data-text="begnign harmless">
+<details class="card" id="card-145" data-category="Diseases, disorders &amp; diagnosis" data-text="begnign harmless">
   <summary><span class="num">145</span><span class="term">Begnign</span><span class="tap">tap</span></summary>
   <div class="definition">harmless</div>
 </details>
-<details class="card" id="card-146" data-text="epidermiologist specialist in the study of the outbreaks of disease">
+<details class="card" id="card-146" data-category="Infection spread &amp; epidemiology" data-text="epidermiologist specialist in the study of the outbreaks of disease">
   <summary><span class="num">146</span><span class="term">Epidermiologist</span><span class="tap">tap</span></summary>
   <div class="definition">specialist in the study of the outbreaks of disease</div>
 </details>
-<details class="card" id="card-147" data-text="endemic (adj.) native or confined to a particular region or people; characteristic of or prevalent in a field">
+<details class="card" id="card-147" data-category="Infection spread &amp; epidemiology" data-text="endemic (adj.) native or confined to a particular region or people; characteristic of or prevalent in a field">
   <summary><span class="num">147</span><span class="term">endemic</span><span class="tap">tap</span></summary>
   <div class="definition">(adj.) native or confined to a particular region or people; characteristic of or prevalent in a field</div>
 </details>
-<details class="card" id="card-148" data-text="epidemic a widespread outbreak of an infectious disease.">
+<details class="card" id="card-148" data-category="Infection spread &amp; epidemiology" data-text="epidemic a widespread outbreak of an infectious disease.">
   <summary><span class="num">148</span><span class="term">epidemic</span><span class="tap">tap</span></summary>
   <div class="definition">A widespread outbreak of an infectious disease.</div>
 </details>
-<details class="card" id="card-149" data-text="pandemic an epidemic that is geographically widespread">
+<details class="card" id="card-149" data-category="Infection spread &amp; epidemiology" data-text="pandemic an epidemic that is geographically widespread">
   <summary><span class="num">149</span><span class="term">Pandemic</span><span class="tap">tap</span></summary>
   <div class="definition">an epidemic that is geographically widespread</div>
 </details>
-<details class="card" id="card-150" data-text="eti- cause">
+<details class="card" id="card-150" data-category="Word parts: prefixes, suffixes, roots" data-text="eti- cause">
   <summary><span class="num">150</span><span class="term">Eti-</span><span class="tap">tap</span></summary>
   <div class="definition">cause</div>
 </details>
-<details class="card" id="card-151" data-text="epi- above">
+<details class="card" id="card-151" data-category="Word parts: prefixes, suffixes, roots" data-text="epi- above">
   <summary><span class="num">151</span><span class="term">epi-</span><span class="tap">tap</span></summary>
   <div class="definition">above</div>
 </details>
-<details class="card" id="card-152" data-text="postmortem after death">
+<details class="card" id="card-152" data-category="Word parts: prefixes, suffixes, roots" data-text="postmortem after death">
   <summary><span class="num">152</span><span class="term">postmortem</span><span class="tap">tap</span></summary>
   <div class="definition">after death</div>
 </details>
-<details class="card" id="card-153" data-text="-trophy development">
+<details class="card" id="card-153" data-category="Word parts: prefixes, suffixes, roots" data-text="-trophy development">
   <summary><span class="num">153</span><span class="term">-trophy</span><span class="tap">tap</span></summary>
   <div class="definition">development</div>
 </details>
-<details class="card" id="card-154" data-text="angi/o blood vessel">
+<details class="card" id="card-154" data-category="Body parts, organs &amp; body roots" data-text="angi/o blood vessel">
   <summary><span class="num">154</span><span class="term">angi/o</span><span class="tap">tap</span></summary>
   <div class="definition">blood vessel</div>
 </details>
-<details class="card" id="card-155" data-text="laryng/o larynx (voice box)">
+<details class="card" id="card-155" data-category="Body parts, organs &amp; body roots" data-text="laryng/o larynx (voice box)">
   <summary><span class="num">155</span><span class="term">laryng/o</span><span class="tap">tap</span></summary>
   <div class="definition">larynx (voice box)</div>
 </details>
-<details class="card" id="card-156" data-text="waterborne is floating or moving on water.">
+<details class="card" id="card-156" data-category="Infection spread &amp; epidemiology" data-text="waterborne is floating or moving on water.">
   <summary><span class="num">156</span><span class="term">waterborne</span><span class="tap">tap</span></summary>
   <div class="definition">is floating or moving on water.</div>
 </details>
-<details class="card" id="card-157" data-text="vector borne an infection from a bug bite">
+<details class="card" id="card-157" data-category="Infection spread &amp; epidemiology" data-text="vector borne an infection from a bug bite">
   <summary><span class="num">157</span><span class="term">vector borne</span><span class="tap">tap</span></summary>
   <div class="definition">An infection from a bug bite</div>
 </details>
-<details class="card" id="card-158" data-text="adenocarcinoma cancerous tumor of glandular tissue">
+<details class="card" id="card-158" data-category="Diseases, disorders &amp; diagnosis" data-text="adenocarcinoma cancerous tumor of glandular tissue">
   <summary><span class="num">158</span><span class="term">adenocarcinoma</span><span class="tap">tap</span></summary>
   <div class="definition">cancerous tumor of glandular tissue</div>
 </details>
-<details class="card" id="card-159" data-text="iatrogenic illness unfavorable response due to prescribed medical treatment">
+<details class="card" id="card-159" data-category="Diseases, disorders &amp; diagnosis" data-text="iatrogenic illness unfavorable response due to prescribed medical treatment">
   <summary><span class="num">159</span><span class="term">iatrogenic illness</span><span class="tap">tap</span></summary>
   <div class="definition">unfavorable response due to prescribed medical treatment</div>
 </details>
-<details class="card" id="card-160" data-text="thoriacic chest">
+<details class="card" id="card-160" data-category="Body parts, organs &amp; body roots" data-text="thoriacic chest">
   <summary><span class="num">160</span><span class="term">Thoriacic</span><span class="tap">tap</span></summary>
   <div class="definition">chest</div>
 </details>
-<details class="card" id="card-161" data-text="huntington&#x27;s disease genetic disorder that causes progressive deterioration of brain cells. caused by a dominant allele. symptoms do not appear until about the age of 30.">
+<details class="card" id="card-161" data-category="Diseases, disorders &amp; diagnosis" data-text="huntington&#x27;s disease genetic disorder that causes progressive deterioration of brain cells. caused by a dominant allele. symptoms do not appear until about the age of 30.">
   <summary><span class="num">161</span><span class="term">Huntington&#x27;s disease</span><span class="tap">tap</span></summary>
   <div class="definition">Genetic disorder that causes progressive deterioration of brain cells. caused by a dominant allele. symptoms do not appear until about the age of 30.</div>
 </details>
-<details class="card" id="card-162" data-text="communicable disease a disease that is spread from one host to another">
+<details class="card" id="card-162" data-category="Diseases, disorders &amp; diagnosis" data-text="communicable disease a disease that is spread from one host to another">
   <summary><span class="num">162</span><span class="term">communicable disease</span><span class="tap">tap</span></summary>
   <div class="definition">a disease that is spread from one host to another</div>
 </details>
-<details class="card" id="card-163" data-text="hemophilia a group of hereditary bleeding disorders in which a blood-clotting factor is missing">
+<details class="card" id="card-163" data-category="Diseases, disorders &amp; diagnosis" data-text="hemophilia a group of hereditary bleeding disorders in which a blood-clotting factor is missing">
   <summary><span class="num">163</span><span class="term">Hemophilia</span><span class="tap">tap</span></summary>
   <div class="definition">a group of hereditary bleeding disorders in which a blood-clotting factor is missing</div>
 </details>
-<details class="card" id="card-164" data-text="anomaly deviation from what is normal">
+<details class="card" id="card-164" data-category="Diseases, disorders &amp; diagnosis" data-text="anomaly deviation from what is normal">
   <summary><span class="num">164</span><span class="term">anomaly</span><span class="tap">tap</span></summary>
   <div class="definition">deviation from what is normal</div>
 </details>
-<details class="card" id="card-165" data-text="hypertrophy increase in cell size">
+<details class="card" id="card-165" data-category="Tissues, cells &amp; growth changes" data-text="hypertrophy increase in cell size">
   <summary><span class="num">165</span><span class="term">hypertrophy</span><span class="tap">tap</span></summary>
   <div class="definition">increase in cell size</div>
 </details>
-<details class="card" id="card-166" data-text="exocrine glands secrete chemical substances into ducts that lead either to other organs or out of the body">
+<details class="card" id="card-166" data-category="Body parts, organs &amp; body roots" data-text="exocrine glands secrete chemical substances into ducts that lead either to other organs or out of the body">
   <summary><span class="num">166</span><span class="term">exocrine glands</span><span class="tap">tap</span></summary>
   <div class="definition">secrete chemical substances into ducts that lead either to other organs or out of the body</div>
 </details>
-<details class="card" id="card-167" data-text="stasia to control">
+<details class="card" id="card-167" data-category="Word parts: prefixes, suffixes, roots" data-text="stasia to control">
   <summary><span class="num">167</span><span class="term">stasia</span><span class="tap">tap</span></summary>
   <div class="definition">to control</div>
 </details>
-<details class="card" id="card-168" data-text="nosocomial infection hospital acquired infection">
+<details class="card" id="card-168" data-category="Diseases, disorders &amp; diagnosis" data-text="nosocomial infection hospital acquired infection">
   <summary><span class="num">168</span><span class="term">nosocomial infection</span><span class="tap">tap</span></summary>
   <div class="definition">hospital acquired infection</div>
 </details>
-<details class="card" id="card-169" data-text="phenylketonuria a genetic disorder in which an essential digestive enzyme is missing">
+<details class="card" id="card-169" data-category="Diseases, disorders &amp; diagnosis" data-text="phenylketonuria a genetic disorder in which an essential digestive enzyme is missing">
   <summary><span class="num">169</span><span class="term">Phenylketonuria</span><span class="tap">tap</span></summary>
   <div class="definition">a genetic disorder in which an essential digestive enzyme is missing</div>
 </details>
-<details class="card" id="card-170" data-text="telemetry a process in which electronic signals are converted into coded, audible signals; these signals can then be transmitted by radio or telephone to a receiver with a decoder at the hospital.">
+<details class="card" id="card-170" data-category="Clinical care, symptoms, wounds &amp; exams" data-text="telemetry a process in which electronic signals are converted into coded, audible signals; these signals can then be transmitted by radio or telephone to a receiver with a decoder at the hospital.">
   <summary><span class="num">170</span><span class="term">telemetry</span><span class="tap">tap</span></summary>
   <div class="definition">A process in which electronic signals are converted into coded, audible signals; these signals can then be transmitted by radio or telephone to a receiver with a decoder at the hospital.</div>
 </details>
-<details class="card" id="card-171" data-text="droplet transmission the spread of diseases such as measles, cold, and flu through large respiratory droplets sprayed by coughing or sneezing onto a nearby person or object">
+<details class="card" id="card-171" data-category="Infection spread &amp; epidemiology" data-text="droplet transmission the spread of diseases such as measles, cold, and flu through large respiratory droplets sprayed by coughing or sneezing onto a nearby person or object">
   <summary><span class="num">171</span><span class="term">droplet transmission</span><span class="tap">tap</span></summary>
   <div class="definition">the spread of diseases such as measles, cold, and flu through large respiratory droplets sprayed by coughing or sneezing onto a nearby person or object</div>
 </details>
-<details class="card" id="card-172" data-text="idiopathic disorder an illness without known cause">
+<details class="card" id="card-172" data-category="Diseases, disorders &amp; diagnosis" data-text="idiopathic disorder an illness without known cause">
   <summary><span class="num">172</span><span class="term">idiopathic disorder</span><span class="tap">tap</span></summary>
   <div class="definition">an illness without known cause</div>
 </details>
-<details class="card" id="card-173" data-text="adenectomy surgical removal of a gland">
+<details class="card" id="card-173" data-category="Body parts, organs &amp; body roots" data-text="adenectomy surgical removal of a gland">
   <summary><span class="num">173</span><span class="term">adenectomy</span><span class="tap">tap</span></summary>
   <div class="definition">surgical removal of a gland</div>
 </details>
-<details class="card" id="card-174" data-text="cystic fibrosis a genetic disorder that is present at birth and affects both the respiratory and digestive systems.">
+<details class="card" id="card-174" data-category="Diseases, disorders &amp; diagnosis" data-text="cystic fibrosis a genetic disorder that is present at birth and affects both the respiratory and digestive systems.">
   <summary><span class="num">174</span><span class="term">cystic fibrosis</span><span class="tap">tap</span></summary>
   <div class="definition">A genetic disorder that is present at birth and affects both the respiratory and digestive systems.</div>
 </details>
-<details class="card" id="card-175" data-text="dense tissue such as bone and cartilage, form the joints and framework of the body">
+<details class="card" id="card-175" data-category="Tissues, cells &amp; growth changes" data-text="dense tissue such as bone and cartilage, form the joints and framework of the body">
   <summary><span class="num">175</span><span class="term">dense tissue</span><span class="tap">tap</span></summary>
   <div class="definition">such as bone and cartilage, form the joints and framework of the body</div>
 </details>
-<details class="card" id="card-176" data-text="loose connective tissue nerve cells and blood vessels are surrounded and supported by this">
+<details class="card" id="card-176" data-category="Tissues, cells &amp; growth changes" data-text="loose connective tissue nerve cells and blood vessels are surrounded and supported by this">
   <summary><span class="num">176</span><span class="term">loose connective tissue</span><span class="tap">tap</span></summary>
   <div class="definition">nerve cells and blood vessels are surrounded and supported by this</div>
 </details>
-<details class="card" id="card-177" data-text="liquid connective tissue blood and lymph, transport nutrients and waste products throughout the body">
+<details class="card" id="card-177" data-category="Tissues, cells &amp; growth changes" data-text="liquid connective tissue blood and lymph, transport nutrients and waste products throughout the body">
   <summary><span class="num">177</span><span class="term">liquid connective tissue</span><span class="tap">tap</span></summary>
   <div class="definition">blood and lymph, transport nutrients and waste products throughout the body</div>
 </details>
-<details class="card" id="card-178" data-text="cytology study of structure and function of cells">
+<details class="card" id="card-178" data-category="Cells, genes &amp; study of the body" data-text="cytology study of structure and function of cells">
   <summary><span class="num">178</span><span class="term">Cytology</span><span class="tap">tap</span></summary>
   <div class="definition">study of structure and function of cells</div>
 </details>
-<details class="card" id="card-179" data-text="anterior front of the body">
+<details class="card" id="card-179" data-category="Look-alike / easy to mix up" data-text="anterior front of the body">
   <summary><span class="num">179</span><span class="term">Anterior</span><span class="tap">tap</span></summary>
   <div class="definition">front of the body</div>
 </details>
-<details class="card" id="card-180" data-text="posterior (dorsal) back of body">
+<details class="card" id="card-180" data-category="Look-alike / easy to mix up" data-text="posterior (dorsal) back of body">
   <summary><span class="num">180</span><span class="term">Posterior (dorsal)</span><span class="tap">tap</span></summary>
   <div class="definition">back of body</div>
 </details>
@@ -1141,31 +1154,7 @@ details[open] .tap::before { content:'hide '; }
 180. Posterior (dorsal) — back of body<br></div>
 </main>
 <script>
-const search = document.getElementById('search');
-const visibleCount = document.getElementById('visibleCount');
-const cards = [...document.querySelectorAll('.card')];
-const indexRows = [...document.querySelectorAll('.index-row')];
-function applySearch() {
-  const q = search.value.trim().toLowerCase();
-  let visible = 0;
-  cards.forEach(card => {
-    const show = !q || card.dataset.text.includes(q);
-    card.classList.toggle('hidden', !show);
-    if (show) visible++;
-  });
-  indexRows.forEach(row => {
-    const show = !q || row.dataset.text.includes(q);
-    row.classList.toggle('hidden', !show);
-  });
-  visibleCount.textContent = visible;
-}
-search.addEventListener('input', applySearch);
-document.getElementById('clearSearch').addEventListener('click', () => {
-  search.value = '';
-  applySearch();
-  search.focus();
-});
-applySearch();
+const search=document.getElementById('search');const visibleCount=document.getElementById('visibleCount');const activeFilter=document.getElementById('activeFilter');const cards=[...document.querySelectorAll('.card')];const indexRows=[...document.querySelectorAll('.index-row')];const chips=[...document.querySelectorAll('.chip')];let selectedCategory='all';function applySearch(){const q=search.value.trim().toLowerCase();let visible=0;cards.forEach(card=>{const show=(selectedCategory==='all'||card.dataset.category===selectedCategory)&&(!q||card.dataset.text.includes(q));card.classList.toggle('hidden',!show);if(show)visible++;});indexRows.forEach(row=>{const show=!q||row.dataset.text.includes(q);row.classList.toggle('hidden',!show);});visibleCount.textContent=visible;if(activeFilter)activeFilter.textContent=selectedCategory==='all'?'all buckets':selectedCategory;}chips.forEach(chip=>chip.addEventListener('click',()=>{selectedCategory=chip.dataset.category;chips.forEach(c=>c.classList.toggle('active',c===chip));applySearch();document.getElementById('cards').scrollIntoView({behavior:'smooth',block:'start'});}));search.addEventListener('input',applySearch);document.getElementById('clearSearch').addEventListener('click',()=>{search.value='';selectedCategory='all';chips.forEach(c=>c.classList.toggle('active',c.dataset.category==='all'));applySearch();search.focus();});applySearch();
 </script>
 </body>
 </html>

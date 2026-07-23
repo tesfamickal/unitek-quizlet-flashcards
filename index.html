@@ -32,6 +32,8 @@ main { padding:12px; max-width:760px; margin:auto; }
 .hidden { display:none; }
 .count { color:var(--accent); font-weight:700; }
 @media (min-width:700px) { .controls { grid-template-columns:1fr auto; align-items:center; } .buttons { min-width:240px; } }
+
+.category-hub,.compare-hub{background:#111722;border:1px solid var(--line);border-radius:18px;padding:14px;margin:12px 0 16px}.category-hub h2,.compare-hub h2{font-size:1.05rem;margin:0 0 4px}.category-hub p,.compare-hub p{margin:0;color:var(--muted);font-size:.92rem}.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:8px;margin-top:12px}.chip,.compare-set{border:1px solid #3b4358;background:#1c2230;color:#f2f2f2;padding:10px;border-radius:10px;font-weight:650;cursor:pointer;text-align:left}.chip{display:flex;flex-direction:column;gap:2px;min-height:62px}.chip small,.compare-set small{color:var(--muted);font-weight:500;display:block}.chip.active{border-color:var(--accent);box-shadow:0 0 0 1px rgba(142,162,255,.45) inset;background:#232b43}.compare-grid{display:grid;gap:8px;margin-top:10px}.compare-set.active{border-color:#ffd36e;background:#302817}.cat-label{display:block;color:var(--muted);font-size:.78rem;margin-top:3px}.section-title{font-size:1.05rem;margin:20px 0 8px}
 </style>
 </head>
 <body>
@@ -42,12 +44,40 @@ main { padding:12px; max-width:760px; margin:auto; }
   <div class="buttons">
     <button class="action" id="showTerms" type="button">Show terms</button>
     <button class="action" id="showDefs" type="button">Show definitions</button>
+    <button class="action" id="resetFilters" type="button">Reset</button>
   </div>
 </div>
 </header>
 <main>
-<div class="meta"><span class="count" id="visibleCount">180</span> / 180 cards. Tap any card to flip. Works offline.</div>
-<button class="card" type="button" data-text="-algia pain, suffering" aria-expanded="false">
+<div class="meta"><span class="count" id="visibleCount">180</span> / 180 cards visible · bucket: <span id="activeFilter">all buckets</span> · tap any card to flip.</div>
+<section class="category-hub"><h2>Study buckets</h2><p>I went through the words and grouped them into intuitive buckets. Tap one to list only that category.</p><div class="chips">
+<button class="chip active" type="button" data-category="all"><b>All cards</b><small>180 cards</small></button>
+<button class="chip" type="button" data-category="Word parts: prefixes, suffixes, roots"><b>Word parts: prefixes, suffixes, roots</b><small>36 cards · prefixes/suffixes/roots and surgical word endings</small></button>
+<button class="chip" type="button" data-category="Body parts, organs &amp; body roots"><b>Body parts, organs &amp; body roots</b><small>43 cards · anatomy roots, organs, cavities, fluids, and body structures</small></button>
+<button class="chip" type="button" data-category="Body position, planes, cavities &amp; regions"><b>Body position, planes, cavities &amp; regions</b><small>15 cards · directional terms and map-like location words</small></button>
+<button class="chip" type="button" data-category="Cells, genes &amp; study of the body"><b>Cells, genes &amp; study of the body</b><small>13 cards · cell parts, genetics, anatomy, physiology, histology, cytology</small></button>
+<button class="chip" type="button" data-category="Tissues, cells &amp; growth changes"><b>Tissues, cells &amp; growth changes</b><small>14 cards · tissue types plus development and growth/change words</small></button>
+<button class="chip" type="button" data-category="Diseases, disorders &amp; diagnosis"><b>Diseases, disorders &amp; diagnosis</b><small>23 cards · conditions, disease patterns, diagnosis, prognosis, remission</small></button>
+<button class="chip" type="button" data-category="Infection spread &amp; epidemiology"><b>Infection spread &amp; epidemiology</b><small>7 cards · outbreak and disease-spread vocabulary</small></button>
+<button class="chip" type="button" data-category="Clinical care, symptoms, wounds &amp; exams"><b>Clinical care, symptoms, wounds &amp; exams</b><small>11 cards · assessment, wounds/injury, symptoms, triage, clinical findings</small></button>
+<button class="chip" type="button" data-category="Look-alike / easy to mix up"><b>Look-alike / easy to mix up</b><small>15 cards · similar-looking or easy-to-confuse words</small></button>
+<button class="chip" type="button" data-category="General medical vocabulary"><b>General medical vocabulary</b><small>3 cards · useful leftover terms that do not fit one bucket cleanly</small></button>
+</div></section>
+<section class="compare-hub"><h2>Similar / confusing sets</h2><p>These pull similar-looking terms together for side-by-side review.</p><div class="compare-grid">
+<button class="compare-set" type="button" data-ids="61,62"><b>ilium vs ileum</b><small>same sound, totally different anatomy · ileum, ilium</small></button>
+<button class="compare-set" type="button" data-ids="80,81"><b>viral vs virile</b><small>virus-related vs masculine/manly · viral, virile</small></button>
+<button class="compare-set" type="button" data-ids="72,73"><b>palpation vs palpitation</b><small>touch exam vs racing/pounding heart · Palpation, palpitation</small></button>
+<button class="compare-set" type="button" data-ids="91,92"><b>sagittal vs midsagittal</b><small>left/right split vs equal left/right split · midsagittal plane, sagittal plane</small></button>
+<button class="compare-set" type="button" data-ids="93,106"><b>transverse vs horizontal plane</b><small>both relate to upper/lower division/rotation · transverse plane, Horizontal Plane (transverse)</small></button>
+<button class="compare-set" type="button" data-ids="107,179,180"><b>anterior/ventral vs posterior/dorsal</b><small>front side vs back side terms · Anterior (ventral), Anterior, Posterior (dorsal)</small></button>
+<button class="compare-set" type="button" data-ids="4,5"><b>hyper- vs hypo-</b><small>excessive vs deficient/decreased · Hyper-, Hypo-</small></button>
+<button class="compare-set" type="button" data-ids="8,9"><b>-ostomy vs -otomy</b><small>create an opening vs make an incision · -ostomy, -otomy</small></button>
+<button class="compare-set" type="button" data-ids="11,12,13,14"><b>-rrhage / -rraphy / -rrhea / -rrhexis</b><small>bleeding/suturing/flow/rupture · -rrhage, -rraphy, -rrhea, -rrhexis</small></button>
+<button class="compare-set" type="button" data-ids="140,141,142"><b>aplasia / hypoplasia / anaplasia</b><small>development and differentiation words · aplasia, hypoplasia, anaplasia</small></button>
+<button class="compare-set" type="button" data-ids="147,148,149"><b>endemic / epidemic / pandemic</b><small>local/prevalent vs outbreak vs widespread outbreak · endemic, epidemic, Pandemic</small></button>
+</div></section>
+<h2 id="cards" class="section-title">Cards</h2>
+<button class="card" id="card-1" type="button" data-id="1" data-category="Word parts: prefixes, suffixes, roots" data-text="-algia pain, suffering" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">1</div>
@@ -63,7 +93,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="dys- bad, painful, difficult" aria-expanded="false">
+<button class="card" id="card-2" type="button" data-id="2" data-category="Word parts: prefixes, suffixes, roots" data-text="dys- bad, painful, difficult" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">2</div>
@@ -79,7 +109,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="-ectomy surgical removal" aria-expanded="false">
+<button class="card" id="card-3" type="button" data-id="3" data-category="Word parts: prefixes, suffixes, roots" data-text="-ectomy surgical removal" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">3</div>
@@ -95,7 +125,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="hyper- excessive" aria-expanded="false">
+<button class="card" id="card-4" type="button" data-id="4" data-category="Word parts: prefixes, suffixes, roots" data-text="hyper- excessive" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">4</div>
@@ -111,7 +141,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="hypo- deficient, decreased" aria-expanded="false">
+<button class="card" id="card-5" type="button" data-id="5" data-category="Word parts: prefixes, suffixes, roots" data-text="hypo- deficient, decreased" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">5</div>
@@ -127,7 +157,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="-itis inflammation" aria-expanded="false">
+<button class="card" id="card-6" type="button" data-id="6" data-category="Word parts: prefixes, suffixes, roots" data-text="-itis inflammation" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">6</div>
@@ -143,7 +173,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="-osis abnormal condition" aria-expanded="false">
+<button class="card" id="card-7" type="button" data-id="7" data-category="Word parts: prefixes, suffixes, roots" data-text="-osis abnormal condition" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">7</div>
@@ -159,7 +189,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="-ostomy surgically create an opening" aria-expanded="false">
+<button class="card" id="card-8" type="button" data-id="8" data-category="Word parts: prefixes, suffixes, roots" data-text="-ostomy surgically create an opening" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">8</div>
@@ -175,7 +205,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="-otomy surgical incision" aria-expanded="false">
+<button class="card" id="card-9" type="button" data-id="9" data-category="Word parts: prefixes, suffixes, roots" data-text="-otomy surgical incision" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">9</div>
@@ -191,7 +221,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="-plasty surgical repair" aria-expanded="false">
+<button class="card" id="card-10" type="button" data-id="10" data-category="Word parts: prefixes, suffixes, roots" data-text="-plasty surgical repair" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">10</div>
@@ -207,7 +237,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="-rrhage bleeding, abnormal excessive fluid discharge" aria-expanded="false">
+<button class="card" id="card-11" type="button" data-id="11" data-category="Word parts: prefixes, suffixes, roots" data-text="-rrhage bleeding, abnormal excessive fluid discharge" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">11</div>
@@ -223,7 +253,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="-rraphy surgical suturing" aria-expanded="false">
+<button class="card" id="card-12" type="button" data-id="12" data-category="Word parts: prefixes, suffixes, roots" data-text="-rraphy surgical suturing" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">12</div>
@@ -239,7 +269,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="-rrhea flow, discharge" aria-expanded="false">
+<button class="card" id="card-13" type="button" data-id="13" data-category="Word parts: prefixes, suffixes, roots" data-text="-rrhea flow, discharge" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">13</div>
@@ -255,7 +285,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="-rrhexis rupture" aria-expanded="false">
+<button class="card" id="card-14" type="button" data-id="14" data-category="Word parts: prefixes, suffixes, roots" data-text="-rrhexis rupture" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">14</div>
@@ -271,7 +301,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="-sclerosis abnormal hardening" aria-expanded="false">
+<button class="card" id="card-15" type="button" data-id="15" data-category="Word parts: prefixes, suffixes, roots" data-text="-sclerosis abnormal hardening" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">15</div>
@@ -287,7 +317,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="necrosis tissue death" aria-expanded="false">
+<button class="card" id="card-16" type="button" data-id="16" data-category="Word parts: prefixes, suffixes, roots" data-text="necrosis tissue death" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">16</div>
@@ -303,7 +333,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="-malacia abnormal softening" aria-expanded="false">
+<button class="card" id="card-17" type="button" data-id="17" data-category="Word parts: prefixes, suffixes, roots" data-text="-malacia abnormal softening" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">17</div>
@@ -319,7 +349,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="myel/o spinal cord, bone marrow" aria-expanded="false">
+<button class="card" id="card-18" type="button" data-id="18" data-category="Body parts, organs &amp; body roots" data-text="myel/o spinal cord, bone marrow" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">18</div>
@@ -335,7 +365,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="oste/o bone" aria-expanded="false">
+<button class="card" id="card-19" type="button" data-id="19" data-category="Body parts, organs &amp; body roots" data-text="oste/o bone" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">19</div>
@@ -351,7 +381,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="neur/o nerve" aria-expanded="false">
+<button class="card" id="card-20" type="button" data-id="20" data-category="Body parts, organs &amp; body roots" data-text="neur/o nerve" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">20</div>
@@ -367,7 +397,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="arthr/o joint" aria-expanded="false">
+<button class="card" id="card-21" type="button" data-id="21" data-category="Body parts, organs &amp; body roots" data-text="arthr/o joint" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">21</div>
@@ -383,7 +413,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="cyan/o blue" aria-expanded="false">
+<button class="card" id="card-22" type="button" data-id="22" data-category="Body parts, organs &amp; body roots" data-text="cyan/o blue" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">22</div>
@@ -399,7 +429,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="erythr/o red" aria-expanded="false">
+<button class="card" id="card-23" type="button" data-id="23" data-category="Body parts, organs &amp; body roots" data-text="erythr/o red" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">23</div>
@@ -415,7 +445,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="leuk/o white" aria-expanded="false">
+<button class="card" id="card-24" type="button" data-id="24" data-category="Body parts, organs &amp; body roots" data-text="leuk/o white" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">24</div>
@@ -431,7 +461,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="melan/o black" aria-expanded="false">
+<button class="card" id="card-25" type="button" data-id="25" data-category="Body parts, organs &amp; body roots" data-text="melan/o black" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">25</div>
@@ -447,7 +477,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="poli/o gray" aria-expanded="false">
+<button class="card" id="card-26" type="button" data-id="26" data-category="Body parts, organs &amp; body roots" data-text="poli/o gray" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">26</div>
@@ -463,7 +493,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="tonsill/o tonsils" aria-expanded="false">
+<button class="card" id="card-27" type="button" data-id="27" data-category="Body parts, organs &amp; body roots" data-text="tonsill/o tonsils" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">27</div>
@@ -479,7 +509,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="crani/o skull" aria-expanded="false">
+<button class="card" id="card-28" type="button" data-id="28" data-category="Body parts, organs &amp; body roots" data-text="crani/o skull" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">28</div>
@@ -495,7 +525,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="arteri/o, arter/o word root for artery" aria-expanded="false">
+<button class="card" id="card-29" type="button" data-id="29" data-category="Body parts, organs &amp; body roots" data-text="arteri/o, arter/o word root for artery" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">29</div>
@@ -511,7 +541,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="-megaly enlargement" aria-expanded="false">
+<button class="card" id="card-30" type="button" data-id="30" data-category="Word parts: prefixes, suffixes, roots" data-text="-megaly enlargement" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">30</div>
@@ -527,7 +557,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="-dynia pain" aria-expanded="false">
+<button class="card" id="card-31" type="button" data-id="31" data-category="Word parts: prefixes, suffixes, roots" data-text="-dynia pain" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">31</div>
@@ -543,7 +573,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="costal ribs" aria-expanded="false">
+<button class="card" id="card-32" type="button" data-id="32" data-category="Body parts, organs &amp; body roots" data-text="costal ribs" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">32</div>
@@ -559,7 +589,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="sub under, below" aria-expanded="false">
+<button class="card" id="card-33" type="button" data-id="33" data-category="Word parts: prefixes, suffixes, roots" data-text="sub under, below" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">33</div>
@@ -575,7 +605,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="supra- above, upper" aria-expanded="false">
+<button class="card" id="card-34" type="button" data-id="34" data-category="Word parts: prefixes, suffixes, roots" data-text="supra- above, upper" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">34</div>
@@ -591,7 +621,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="abdominal cavity contains primarily the major organs of digestion" aria-expanded="false">
+<button class="card" id="card-35" type="button" data-id="35" data-category="Body parts, organs &amp; body roots" data-text="abdominal cavity contains primarily the major organs of digestion" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">35</div>
@@ -607,7 +637,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="-scropy visual examination" aria-expanded="false">
+<button class="card" id="card-36" type="button" data-id="36" data-category="General medical vocabulary" data-text="-scropy visual examination" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">36</div>
@@ -623,7 +653,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="my/o muscle" aria-expanded="false">
+<button class="card" id="card-37" type="button" data-id="37" data-category="Body parts, organs &amp; body roots" data-text="my/o muscle" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">37</div>
@@ -639,7 +669,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="-graphy the process of producing a picture or record" aria-expanded="false">
+<button class="card" id="card-38" type="button" data-id="38" data-category="General medical vocabulary" data-text="-graphy the process of producing a picture or record" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">38</div>
@@ -655,7 +685,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="hem/o blood" aria-expanded="false">
+<button class="card" id="card-39" type="button" data-id="39" data-category="Body parts, organs &amp; body roots" data-text="hem/o blood" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">39</div>
@@ -671,7 +701,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="ab away from" aria-expanded="false">
+<button class="card" id="card-40" type="button" data-id="40" data-category="Word parts: prefixes, suffixes, roots" data-text="ab away from" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">40</div>
@@ -687,7 +717,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="dextr/o right side" aria-expanded="false">
+<button class="card" id="card-41" type="button" data-id="41" data-category="Body parts, organs &amp; body roots" data-text="dextr/o right side" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">41</div>
@@ -703,7 +733,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="ex- out, away from" aria-expanded="false">
+<button class="card" id="card-42" type="button" data-id="42" data-category="Word parts: prefixes, suffixes, roots" data-text="ex- out, away from" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">42</div>
@@ -719,7 +749,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="endo- within, inner" aria-expanded="false">
+<button class="card" id="card-43" type="button" data-id="43" data-category="Word parts: prefixes, suffixes, roots" data-text="endo- within, inner" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">43</div>
@@ -735,7 +765,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="inter between" aria-expanded="false">
+<button class="card" id="card-44" type="button" data-id="44" data-category="Word parts: prefixes, suffixes, roots" data-text="inter between" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">44</div>
@@ -751,7 +781,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="intra within" aria-expanded="false">
+<button class="card" id="card-45" type="button" data-id="45" data-category="Word parts: prefixes, suffixes, roots" data-text="intra within" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">45</div>
@@ -767,7 +797,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="sinistr/o left side" aria-expanded="false">
+<button class="card" id="card-46" type="button" data-id="46" data-category="Body parts, organs &amp; body roots" data-text="sinistr/o left side" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">46</div>
@@ -783,7 +813,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="mega-, megalo- large, great" aria-expanded="false">
+<button class="card" id="card-47" type="button" data-id="47" data-category="Word parts: prefixes, suffixes, roots" data-text="mega-, megalo- large, great" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">47</div>
@@ -799,7 +829,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="olig/o scanty, few" aria-expanded="false">
+<button class="card" id="card-48" type="button" data-id="48" data-category="Word parts: prefixes, suffixes, roots" data-text="olig/o scanty, few" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">48</div>
@@ -815,7 +845,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="ad toward" aria-expanded="false">
+<button class="card" id="card-49" type="button" data-id="49" data-category="Word parts: prefixes, suffixes, roots" data-text="ad toward" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">49</div>
@@ -831,7 +861,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="eu- good, normal" aria-expanded="false">
+<button class="card" id="card-50" type="button" data-id="50" data-category="Word parts: prefixes, suffixes, roots" data-text="eu- good, normal" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">50</div>
@@ -847,7 +877,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="sign objective evidence of disease such as a fever" aria-expanded="false">
+<button class="card" id="card-51" type="button" data-id="51" data-category="Diseases, disorders &amp; diagnosis" data-text="sign objective evidence of disease such as a fever" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">51</div>
@@ -863,7 +893,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="different diagnosis the process of differentiating between two or more conditions that similar signs or symptoms" aria-expanded="false">
+<button class="card" id="card-52" type="button" data-id="52" data-category="Look-alike / easy to mix up" data-text="different diagnosis the process of differentiating between two or more conditions that similar signs or symptoms" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">52</div>
@@ -879,7 +909,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="eponym a disease, structure, operation, or procedure named for the person who discovered or described it first" aria-expanded="false">
+<button class="card" id="card-53" type="button" data-id="53" data-category="Diseases, disorders &amp; diagnosis" data-text="eponym a disease, structure, operation, or procedure named for the person who discovered or described it first" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">53</div>
@@ -895,7 +925,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="syndrome a group of symptoms" aria-expanded="false">
+<button class="card" id="card-54" type="button" data-id="54" data-category="Diseases, disorders &amp; diagnosis" data-text="syndrome a group of symptoms" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">54</div>
@@ -911,7 +941,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="acute a condition with a rapid onset with a short course." aria-expanded="false">
+<button class="card" id="card-55" type="button" data-id="55" data-category="Diseases, disorders &amp; diagnosis" data-text="acute a condition with a rapid onset with a short course." aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">55</div>
@@ -927,7 +957,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="remission the temporary, partial, or complete disappearance of the symptoms of a disease without having achieved a cure" aria-expanded="false">
+<button class="card" id="card-56" type="button" data-id="56" data-category="Diseases, disorders &amp; diagnosis" data-text="remission the temporary, partial, or complete disappearance of the symptoms of a disease without having achieved a cure" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">56</div>
@@ -943,7 +973,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="prognosis a prediction of the course of a disease" aria-expanded="false">
+<button class="card" id="card-57" type="button" data-id="57" data-category="Diseases, disorders &amp; diagnosis" data-text="prognosis a prediction of the course of a disease" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">57</div>
@@ -959,7 +989,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="pyrosis heartburn" aria-expanded="false">
+<button class="card" id="card-58" type="button" data-id="58" data-category="Look-alike / easy to mix up" data-text="pyrosis heartburn" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">58</div>
@@ -975,7 +1005,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="fissure an opening; a groove; a split" aria-expanded="false">
+<button class="card" id="card-59" type="button" data-id="59" data-category="Clinical care, symptoms, wounds &amp; exams" data-text="fissure an opening; a groove; a split" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">59</div>
@@ -991,7 +1021,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="fisula abnormal passageway between two organs or between an internal organ and the body surface" aria-expanded="false">
+<button class="card" id="card-60" type="button" data-id="60" data-category="Clinical care, symptoms, wounds &amp; exams" data-text="fisula abnormal passageway between two organs or between an internal organ and the body surface" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">60</div>
@@ -1007,7 +1037,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="ileum the last and longest portion of the small intestine" aria-expanded="false">
+<button class="card" id="card-61" type="button" data-id="61" data-category="Look-alike / easy to mix up" data-text="ileum the last and longest portion of the small intestine" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">61</div>
@@ -1023,7 +1053,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="ilium part of the hip bone" aria-expanded="false">
+<button class="card" id="card-62" type="button" data-id="62" data-category="Look-alike / easy to mix up" data-text="ilium part of the hip bone" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">62</div>
@@ -1039,7 +1069,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="meningitis inflammation and infection of the meninges" aria-expanded="false">
+<button class="card" id="card-63" type="button" data-id="63" data-category="Diseases, disorders &amp; diagnosis" data-text="meningitis inflammation and infection of the meninges" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">63</div>
@@ -1055,7 +1085,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="laceration jagged wound" aria-expanded="false">
+<button class="card" id="card-64" type="button" data-id="64" data-category="Clinical care, symptoms, wounds &amp; exams" data-text="laceration jagged wound" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">64</div>
@@ -1071,7 +1101,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="malaise a feeling of depression, uneasiness, or queasiness" aria-expanded="false">
+<button class="card" id="card-65" type="button" data-id="65" data-category="Clinical care, symptoms, wounds &amp; exams" data-text="malaise a feeling of depression, uneasiness, or queasiness" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">65</div>
@@ -1087,7 +1117,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="exudate fluid, such as pus, that leaks out of an infected wound" aria-expanded="false">
+<button class="card" id="card-66" type="button" data-id="66" data-category="Clinical care, symptoms, wounds &amp; exams" data-text="exudate fluid, such as pus, that leaks out of an infected wound" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">66</div>
@@ -1103,7 +1133,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="lesion a pathologic change of the tissues due to disease or injury" aria-expanded="false">
+<button class="card" id="card-67" type="button" data-id="67" data-category="Clinical care, symptoms, wounds &amp; exams" data-text="lesion a pathologic change of the tissues due to disease or injury" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">67</div>
@@ -1119,7 +1149,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="mucous membrane membrane that secretes mucus that lubricates the surface of organs and keeps them moist." aria-expanded="false">
+<button class="card" id="card-68" type="button" data-id="68" data-category="Clinical care, symptoms, wounds &amp; exams" data-text="mucous membrane membrane that secretes mucus that lubricates the surface of organs and keeps them moist." aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">68</div>
@@ -1135,7 +1165,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="myc/o fungus" aria-expanded="false">
+<button class="card" id="card-69" type="button" data-id="69" data-category="Body parts, organs &amp; body roots" data-text="myc/o fungus" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">69</div>
@@ -1151,7 +1181,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="mycosis any abnormal condition or disease caused by a fungus" aria-expanded="false">
+<button class="card" id="card-70" type="button" data-id="70" data-category="Diseases, disorders &amp; diagnosis" data-text="mycosis any abnormal condition or disease caused by a fungus" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">70</div>
@@ -1167,7 +1197,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="neonatology study of newborns and the treatment of their disorders" aria-expanded="false">
+<button class="card" id="card-71" type="button" data-id="71" data-category="Clinical care, symptoms, wounds &amp; exams" data-text="neonatology study of newborns and the treatment of their disorders" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">71</div>
@@ -1183,7 +1213,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="palpation to examine by touch" aria-expanded="false">
+<button class="card" id="card-72" type="button" data-id="72" data-category="Look-alike / easy to mix up" data-text="palpation to examine by touch" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">72</div>
@@ -1199,7 +1229,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="palpitation pounding or racing heart" aria-expanded="false">
+<button class="card" id="card-73" type="button" data-id="73" data-category="Look-alike / easy to mix up" data-text="palpitation pounding or racing heart" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">73</div>
@@ -1215,7 +1245,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="pyo pus" aria-expanded="false">
+<button class="card" id="card-74" type="button" data-id="74" data-category="Body parts, organs &amp; body roots" data-text="pyo pus" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">74</div>
@@ -1231,7 +1261,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="pyoderma skin disease containing pus" aria-expanded="false">
+<button class="card" id="card-75" type="button" data-id="75" data-category="Diseases, disorders &amp; diagnosis" data-text="pyoderma skin disease containing pus" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">75</div>
@@ -1247,7 +1277,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="pyel/o renal pelvis" aria-expanded="false">
+<button class="card" id="card-76" type="button" data-id="76" data-category="Body parts, organs &amp; body roots" data-text="pyel/o renal pelvis" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">76</div>
@@ -1263,7 +1293,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="pyelitis inflammation of the renal pelvis" aria-expanded="false">
+<button class="card" id="card-77" type="button" data-id="77" data-category="Diseases, disorders &amp; diagnosis" data-text="pyelitis inflammation of the renal pelvis" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">77</div>
@@ -1279,7 +1309,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="triage the medical screening of patients to determine their relative priority of need and the proper place of treatment" aria-expanded="false">
+<button class="card" id="card-78" type="button" data-id="78" data-category="Clinical care, symptoms, wounds &amp; exams" data-text="triage the medical screening of patients to determine their relative priority of need and the proper place of treatment" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">78</div>
@@ -1295,7 +1325,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="trauma wound or injury" aria-expanded="false">
+<button class="card" id="card-79" type="button" data-id="79" data-category="Clinical care, symptoms, wounds &amp; exams" data-text="trauma wound or injury" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">79</div>
@@ -1311,7 +1341,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="viral pertaining to a virus" aria-expanded="false">
+<button class="card" id="card-80" type="button" data-id="80" data-category="Look-alike / easy to mix up" data-text="viral pertaining to a virus" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">80</div>
@@ -1327,7 +1357,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="virile masculine; manly" aria-expanded="false">
+<button class="card" id="card-81" type="button" data-id="81" data-category="Look-alike / easy to mix up" data-text="virile masculine; manly" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">81</div>
@@ -1343,7 +1373,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="eupnea normal breathing" aria-expanded="false">
+<button class="card" id="card-82" type="button" data-id="82" data-category="Body parts, organs &amp; body roots" data-text="eupnea normal breathing" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">82</div>
@@ -1359,7 +1389,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="tension pressure" aria-expanded="false">
+<button class="card" id="card-83" type="button" data-id="83" data-category="Body parts, organs &amp; body roots" data-text="tension pressure" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">83</div>
@@ -1375,7 +1405,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="interstitial between, but not within, the parts of a tissue" aria-expanded="false">
+<button class="card" id="card-84" type="button" data-id="84" data-category="Body parts, organs &amp; body roots" data-text="interstitial between, but not within, the parts of a tissue" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">84</div>
@@ -1391,7 +1421,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="instramuscular within the muscle" aria-expanded="false">
+<button class="card" id="card-85" type="button" data-id="85" data-category="Body parts, organs &amp; body roots" data-text="instramuscular within the muscle" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">85</div>
@@ -1407,7 +1437,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="anatomy the study of body structure" aria-expanded="false">
+<button class="card" id="card-86" type="button" data-id="86" data-category="Cells, genes &amp; study of the body" data-text="anatomy the study of body structure" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">86</div>
@@ -1423,7 +1453,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="physiology the study of body function" aria-expanded="false">
+<button class="card" id="card-87" type="button" data-id="87" data-category="Cells, genes &amp; study of the body" data-text="physiology the study of body function" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">87</div>
@@ -1439,7 +1469,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="aden/o gland" aria-expanded="false">
+<button class="card" id="card-88" type="button" data-id="88" data-category="Body parts, organs &amp; body roots" data-text="aden/o gland" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">88</div>
@@ -1455,7 +1485,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="adip/o fat" aria-expanded="false">
+<button class="card" id="card-89" type="button" data-id="89" data-category="Body parts, organs &amp; body roots" data-text="adip/o fat" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">89</div>
@@ -1471,7 +1501,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="anter/o before, in front" aria-expanded="false">
+<button class="card" id="card-90" type="button" data-id="90" data-category="Body parts, organs &amp; body roots" data-text="anter/o before, in front" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">90</div>
@@ -1487,7 +1517,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="midsagittal plane divides the body into equal right and left sides" aria-expanded="false">
+<button class="card" id="card-91" type="button" data-id="91" data-category="Look-alike / easy to mix up" data-text="midsagittal plane divides the body into equal right and left sides" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">91</div>
@@ -1503,7 +1533,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="sagittal plane divides body into left and right" aria-expanded="false">
+<button class="card" id="card-92" type="button" data-id="92" data-category="Look-alike / easy to mix up" data-text="sagittal plane divides body into left and right" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">92</div>
@@ -1519,7 +1549,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="transverse plane horizontal division of the body into upper and lower portions" aria-expanded="false">
+<button class="card" id="card-93" type="button" data-id="93" data-category="Body position, planes, cavities &amp; regions" data-text="transverse plane horizontal division of the body into upper and lower portions" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">93</div>
@@ -1535,7 +1565,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="caud/o lower part of body, tail" aria-expanded="false">
+<button class="card" id="card-94" type="button" data-id="94" data-category="Body parts, organs &amp; body roots" data-text="caud/o lower part of body, tail" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">94</div>
@@ -1551,7 +1581,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="cephal/o head" aria-expanded="false">
+<button class="card" id="card-95" type="button" data-id="95" data-category="Body parts, organs &amp; body roots" data-text="cephal/o head" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">95</div>
@@ -1567,7 +1597,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="cyt/o, -cyte (root, suffix) cell" aria-expanded="false">
+<button class="card" id="card-96" type="button" data-id="96" data-category="Tissues, cells &amp; growth changes" data-text="cyt/o, -cyte (root, suffix) cell" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">96</div>
@@ -1583,7 +1613,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="histology study of tissues" aria-expanded="false">
+<button class="card" id="card-97" type="button" data-id="97" data-category="Cells, genes &amp; study of the body" data-text="histology study of tissues" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">97</div>
@@ -1599,7 +1629,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="end-, endo- within, inside" aria-expanded="false">
+<button class="card" id="card-98" type="button" data-id="98" data-category="Word parts: prefixes, suffixes, roots" data-text="end-, endo- within, inside" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">98</div>
@@ -1615,7 +1645,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="proximal closer to the point of attachment, near midline" aria-expanded="false">
+<button class="card" id="card-99" type="button" data-id="99" data-category="Body position, planes, cavities &amp; regions" data-text="proximal closer to the point of attachment, near midline" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">99</div>
@@ -1631,7 +1661,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="distal farther from the origin of a body part or the point of attachment of a limb to the body trunk" aria-expanded="false">
+<button class="card" id="card-100" type="button" data-id="100" data-category="Body position, planes, cavities &amp; regions" data-text="distal farther from the origin of a body part or the point of attachment of a limb to the body trunk" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">100</div>
@@ -1647,7 +1677,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="medial toward the midline of the body" aria-expanded="false">
+<button class="card" id="card-101" type="button" data-id="101" data-category="Body position, planes, cavities &amp; regions" data-text="medial toward the midline of the body" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">101</div>
@@ -1663,7 +1693,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="lateral away from the midline" aria-expanded="false">
+<button class="card" id="card-102" type="button" data-id="102" data-category="Body position, planes, cavities &amp; regions" data-text="lateral away from the midline" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">102</div>
@@ -1679,7 +1709,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="ventral cavity located along the front of the body, contains the body organs that sustain homeostasis" aria-expanded="false">
+<button class="card" id="card-103" type="button" data-id="103" data-category="Body position, planes, cavities &amp; regions" data-text="ventral cavity located along the front of the body, contains the body organs that sustain homeostasis" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">103</div>
@@ -1695,7 +1725,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="dorsal cavity includes the cranial and spinal cavities., back part of body" aria-expanded="false">
+<button class="card" id="card-104" type="button" data-id="104" data-category="Body position, planes, cavities &amp; regions" data-text="dorsal cavity includes the cranial and spinal cavities., back part of body" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">104</div>
@@ -1711,7 +1741,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="vertical plane an up-and-down plane that is a right angle to the horizon" aria-expanded="false">
+<button class="card" id="card-105" type="button" data-id="105" data-category="Look-alike / easy to mix up" data-text="vertical plane an up-and-down plane that is a right angle to the horizon" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">105</div>
@@ -1727,7 +1757,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="horizontal plane (transverse) divides the body into upper and lower portions. rotation occurs within the horizontal plane" aria-expanded="false">
+<button class="card" id="card-106" type="button" data-id="106" data-category="Look-alike / easy to mix up" data-text="horizontal plane (transverse) divides the body into upper and lower portions. rotation occurs within the horizontal plane" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">106</div>
@@ -1743,7 +1773,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="anterior (ventral) front of the body" aria-expanded="false">
+<button class="card" id="card-107" type="button" data-id="107" data-category="Look-alike / easy to mix up" data-text="anterior (ventral) front of the body" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">107</div>
@@ -1759,7 +1789,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="superior higher on the body, nearer to the head" aria-expanded="false">
+<button class="card" id="card-108" type="button" data-id="108" data-category="Body position, planes, cavities &amp; regions" data-text="superior higher on the body, nearer to the head" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">108</div>
@@ -1775,7 +1805,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="inferior lowermost, toward the feet" aria-expanded="false">
+<button class="card" id="card-109" type="button" data-id="109" data-category="Body position, planes, cavities &amp; regions" data-text="inferior lowermost, toward the feet" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">109</div>
@@ -1791,7 +1821,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="cephalic toward the head" aria-expanded="false">
+<button class="card" id="card-110" type="button" data-id="110" data-category="Body position, planes, cavities &amp; regions" data-text="cephalic toward the head" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">110</div>
@@ -1807,7 +1837,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="caudal toward the tail, lower part of body" aria-expanded="false">
+<button class="card" id="card-111" type="button" data-id="111" data-category="Body position, planes, cavities &amp; regions" data-text="caudal toward the tail, lower part of body" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">111</div>
@@ -1823,7 +1853,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="thoriac cavity chest" aria-expanded="false">
+<button class="card" id="card-112" type="button" data-id="112" data-category="Body parts, organs &amp; body roots" data-text="thoriac cavity chest" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">112</div>
@@ -1839,7 +1869,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="diaphragm a dome-shaped, muscular partition separating the thorax from the abdomen in mammals. it plays a major role in breathing, as its contraction increases the volume of the thorax and so inflates the lungs." aria-expanded="false">
+<button class="card" id="card-113" type="button" data-id="113" data-category="Body parts, organs &amp; body roots" data-text="diaphragm a dome-shaped, muscular partition separating the thorax from the abdomen in mammals. it plays a major role in breathing, as its contraction increases the volume of the thorax and so inflates the lungs." aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">113</div>
@@ -1855,7 +1885,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="epithelial tissue tissue that covers outside of the body and lines organs and cavities." aria-expanded="false">
+<button class="card" id="card-114" type="button" data-id="114" data-category="Tissues, cells &amp; growth changes" data-text="epithelial tissue tissue that covers outside of the body and lines organs and cavities." aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">114</div>
@@ -1871,7 +1901,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="nervous tissue tissue that senses stimuli and transmits signals." aria-expanded="false">
+<button class="card" id="card-115" type="button" data-id="115" data-category="Tissues, cells &amp; growth changes" data-text="nervous tissue tissue that senses stimuli and transmits signals." aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">115</div>
@@ -1887,7 +1917,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="connective tissue a body tissue that provides support for the body and connects all of its parts" aria-expanded="false">
+<button class="card" id="card-116" type="button" data-id="116" data-category="Tissues, cells &amp; growth changes" data-text="connective tissue a body tissue that provides support for the body and connects all of its parts" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">116</div>
@@ -1903,7 +1933,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="muscular tissue contracts and moves the various parts of the body." aria-expanded="false">
+<button class="card" id="card-117" type="button" data-id="117" data-category="Tissues, cells &amp; growth changes" data-text="muscular tissue contracts and moves the various parts of the body." aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">117</div>
@@ -1919,7 +1949,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="homeostasis a tendency to maintain a balanced or constant internal state; the regulation of any aspect of body chemistry, such as blood glucose, around a particular level (constant control)" aria-expanded="false">
+<button class="card" id="card-118" type="button" data-id="118" data-category="General medical vocabulary" data-text="homeostasis a tendency to maintain a balanced or constant internal state; the regulation of any aspect of body chemistry, such as blood glucose, around a particular level (constant control)" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">118</div>
@@ -1935,7 +1965,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="inguinal groin" aria-expanded="false">
+<button class="card" id="card-119" type="button" data-id="119" data-category="Body parts, organs &amp; body roots" data-text="inguinal groin" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">119</div>
@@ -1951,7 +1981,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="hypochondriac region to the right and left of the epigastric region" aria-expanded="false">
+<button class="card" id="card-120" type="button" data-id="120" data-category="Body position, planes, cavities &amp; regions" data-text="hypochondriac region to the right and left of the epigastric region" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">120</div>
@@ -1967,7 +1997,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="epigastric region located above the stomach" aria-expanded="false">
+<button class="card" id="card-121" type="button" data-id="121" data-category="Body position, planes, cavities &amp; regions" data-text="epigastric region located above the stomach" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">121</div>
@@ -1983,7 +2013,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="umbilical region belly button area" aria-expanded="false">
+<button class="card" id="card-122" type="button" data-id="122" data-category="Body position, planes, cavities &amp; regions" data-text="umbilical region belly button area" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">122</div>
@@ -1999,7 +2029,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="hypogastric region located below the stomach (near pelvic)" aria-expanded="false">
+<button class="card" id="card-123" type="button" data-id="123" data-category="Body position, planes, cavities &amp; regions" data-text="hypogastric region located below the stomach (near pelvic)" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">123</div>
@@ -2015,7 +2045,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="peritoneum membrane that lines the abdominal cavity" aria-expanded="false">
+<button class="card" id="card-124" type="button" data-id="124" data-category="Body parts, organs &amp; body roots" data-text="peritoneum membrane that lines the abdominal cavity" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">124</div>
@@ -2031,7 +2061,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="parietal peritoneum the outer layer of the peritoneum that lines the interior of the abdominal wall" aria-expanded="false">
+<button class="card" id="card-125" type="button" data-id="125" data-category="Body parts, organs &amp; body roots" data-text="parietal peritoneum the outer layer of the peritoneum that lines the interior of the abdominal wall" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">125</div>
@@ -2047,7 +2077,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="mesentery a fused double layer of the parietal peritoneum that attaches parts of the intestine to the interior abdominal wall" aria-expanded="false">
+<button class="card" id="card-126" type="button" data-id="126" data-category="Body parts, organs &amp; body roots" data-text="mesentery a fused double layer of the parietal peritoneum that attaches parts of the intestine to the interior abdominal wall" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">126</div>
@@ -2063,7 +2093,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="visceral peritoneum covers organs" aria-expanded="false">
+<button class="card" id="card-127" type="button" data-id="127" data-category="Body parts, organs &amp; body roots" data-text="visceral peritoneum covers organs" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">127</div>
@@ -2079,7 +2109,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="retroperitoneal located behind the peritoneum" aria-expanded="false">
+<button class="card" id="card-128" type="button" data-id="128" data-category="Body parts, organs &amp; body roots" data-text="retroperitoneal located behind the peritoneum" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">128</div>
@@ -2095,7 +2125,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="cell membrane surrounds and protects the cell" aria-expanded="false">
+<button class="card" id="card-129" type="button" data-id="129" data-category="Cells, genes &amp; study of the body" data-text="cell membrane surrounds and protects the cell" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">129</div>
@@ -2111,7 +2141,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="cytoplasm the portion of the cell outside the nucleus" aria-expanded="false">
+<button class="card" id="card-130" type="button" data-id="130" data-category="Cells, genes &amp; study of the body" data-text="cytoplasm the portion of the cell outside the nucleus" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">130</div>
@@ -2127,7 +2157,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="nucleus structure of cell , controls activities and helps cell divide" aria-expanded="false">
+<button class="card" id="card-131" type="button" data-id="131" data-category="Cells, genes &amp; study of the body" data-text="nucleus structure of cell , controls activities and helps cell divide" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">131</div>
@@ -2143,7 +2173,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="stem cells unspecialized cells that are able to renew themselves for long periods of time by cell division" aria-expanded="false">
+<button class="card" id="card-132" type="button" data-id="132" data-category="Cells, genes &amp; study of the body" data-text="stem cells unspecialized cells that are able to renew themselves for long periods of time by cell division" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">132</div>
@@ -2159,7 +2189,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="gene a unit of heredity that is transferred from a parent to offspring and is held to determine some characteristic of the offspring." aria-expanded="false">
+<button class="card" id="card-133" type="button" data-id="133" data-category="Cells, genes &amp; study of the body" data-text="gene a unit of heredity that is transferred from a parent to offspring and is held to determine some characteristic of the offspring." aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">133</div>
@@ -2175,7 +2205,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="genetics the scientific study of heredity" aria-expanded="false">
+<button class="card" id="card-134" type="button" data-id="134" data-category="Cells, genes &amp; study of the body" data-text="genetics the scientific study of heredity" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">134</div>
@@ -2191,7 +2221,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="geneticist a specialist in genetics" aria-expanded="false">
+<button class="card" id="card-135" type="button" data-id="135" data-category="Cells, genes &amp; study of the body" data-text="geneticist a specialist in genetics" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">135</div>
@@ -2207,7 +2237,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="recessive gene gene that is expressed only in the absence of a dominant gene" aria-expanded="false">
+<button class="card" id="card-136" type="button" data-id="136" data-category="Cells, genes &amp; study of the body" data-text="recessive gene gene that is expressed only in the absence of a dominant gene" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">136</div>
@@ -2223,7 +2253,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="genome entire set of genes" aria-expanded="false">
+<button class="card" id="card-137" type="button" data-id="137" data-category="Cells, genes &amp; study of the body" data-text="genome entire set of genes" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">137</div>
@@ -2239,7 +2269,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="epithelial tissue a body tissue that covers the surfaces of the body, inside and out" aria-expanded="false">
+<button class="card" id="card-138" type="button" data-id="138" data-category="Tissues, cells &amp; growth changes" data-text="epithelial tissue a body tissue that covers the surfaces of the body, inside and out" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">138</div>
@@ -2255,7 +2285,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="muscle tissue tissue made of cells capable of contracting." aria-expanded="false">
+<button class="card" id="card-139" type="button" data-id="139" data-category="Tissues, cells &amp; growth changes" data-text="muscle tissue tissue made of cells capable of contracting." aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">139</div>
@@ -2271,7 +2301,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="aplasia lack of development of an organ or tissue" aria-expanded="false">
+<button class="card" id="card-140" type="button" data-id="140" data-category="Tissues, cells &amp; growth changes" data-text="aplasia lack of development of an organ or tissue" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">140</div>
@@ -2287,7 +2317,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="hypoplasia incomplete development of an organ or tissue" aria-expanded="false">
+<button class="card" id="card-141" type="button" data-id="141" data-category="Tissues, cells &amp; growth changes" data-text="hypoplasia incomplete development of an organ or tissue" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">141</div>
@@ -2303,7 +2333,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="anaplasia lack of differentiation" aria-expanded="false">
+<button class="card" id="card-142" type="button" data-id="142" data-category="Tissues, cells &amp; growth changes" data-text="anaplasia lack of differentiation" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">142</div>
@@ -2319,7 +2349,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="carcin/o cancer" aria-expanded="false">
+<button class="card" id="card-143" type="button" data-id="143" data-category="Diseases, disorders &amp; diagnosis" data-text="carcin/o cancer" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">143</div>
@@ -2335,7 +2365,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="malignant harmful" aria-expanded="false">
+<button class="card" id="card-144" type="button" data-id="144" data-category="Diseases, disorders &amp; diagnosis" data-text="malignant harmful" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">144</div>
@@ -2351,7 +2381,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="begnign harmless" aria-expanded="false">
+<button class="card" id="card-145" type="button" data-id="145" data-category="Diseases, disorders &amp; diagnosis" data-text="begnign harmless" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">145</div>
@@ -2367,7 +2397,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="epidermiologist specialist in the study of the outbreaks of disease" aria-expanded="false">
+<button class="card" id="card-146" type="button" data-id="146" data-category="Infection spread &amp; epidemiology" data-text="epidermiologist specialist in the study of the outbreaks of disease" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">146</div>
@@ -2383,7 +2413,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="endemic (adj.) native or confined to a particular region or people; characteristic of or prevalent in a field" aria-expanded="false">
+<button class="card" id="card-147" type="button" data-id="147" data-category="Infection spread &amp; epidemiology" data-text="endemic (adj.) native or confined to a particular region or people; characteristic of or prevalent in a field" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">147</div>
@@ -2399,7 +2429,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="epidemic a widespread outbreak of an infectious disease." aria-expanded="false">
+<button class="card" id="card-148" type="button" data-id="148" data-category="Infection spread &amp; epidemiology" data-text="epidemic a widespread outbreak of an infectious disease." aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">148</div>
@@ -2415,7 +2445,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="pandemic an epidemic that is geographically widespread" aria-expanded="false">
+<button class="card" id="card-149" type="button" data-id="149" data-category="Infection spread &amp; epidemiology" data-text="pandemic an epidemic that is geographically widespread" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">149</div>
@@ -2431,7 +2461,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="eti- cause" aria-expanded="false">
+<button class="card" id="card-150" type="button" data-id="150" data-category="Word parts: prefixes, suffixes, roots" data-text="eti- cause" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">150</div>
@@ -2447,7 +2477,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="epi- above" aria-expanded="false">
+<button class="card" id="card-151" type="button" data-id="151" data-category="Word parts: prefixes, suffixes, roots" data-text="epi- above" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">151</div>
@@ -2463,7 +2493,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="postmortem after death" aria-expanded="false">
+<button class="card" id="card-152" type="button" data-id="152" data-category="Word parts: prefixes, suffixes, roots" data-text="postmortem after death" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">152</div>
@@ -2479,7 +2509,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="-trophy development" aria-expanded="false">
+<button class="card" id="card-153" type="button" data-id="153" data-category="Word parts: prefixes, suffixes, roots" data-text="-trophy development" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">153</div>
@@ -2495,7 +2525,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="angi/o blood vessel" aria-expanded="false">
+<button class="card" id="card-154" type="button" data-id="154" data-category="Body parts, organs &amp; body roots" data-text="angi/o blood vessel" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">154</div>
@@ -2511,7 +2541,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="laryng/o larynx (voice box)" aria-expanded="false">
+<button class="card" id="card-155" type="button" data-id="155" data-category="Body parts, organs &amp; body roots" data-text="laryng/o larynx (voice box)" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">155</div>
@@ -2527,7 +2557,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="waterborne is floating or moving on water." aria-expanded="false">
+<button class="card" id="card-156" type="button" data-id="156" data-category="Infection spread &amp; epidemiology" data-text="waterborne is floating or moving on water." aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">156</div>
@@ -2543,7 +2573,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="vector borne an infection from a bug bite" aria-expanded="false">
+<button class="card" id="card-157" type="button" data-id="157" data-category="Infection spread &amp; epidemiology" data-text="vector borne an infection from a bug bite" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">157</div>
@@ -2559,7 +2589,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="adenocarcinoma cancerous tumor of glandular tissue" aria-expanded="false">
+<button class="card" id="card-158" type="button" data-id="158" data-category="Diseases, disorders &amp; diagnosis" data-text="adenocarcinoma cancerous tumor of glandular tissue" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">158</div>
@@ -2575,7 +2605,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="iatrogenic illness unfavorable response due to prescribed medical treatment" aria-expanded="false">
+<button class="card" id="card-159" type="button" data-id="159" data-category="Diseases, disorders &amp; diagnosis" data-text="iatrogenic illness unfavorable response due to prescribed medical treatment" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">159</div>
@@ -2591,7 +2621,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="thoriacic chest" aria-expanded="false">
+<button class="card" id="card-160" type="button" data-id="160" data-category="Body parts, organs &amp; body roots" data-text="thoriacic chest" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">160</div>
@@ -2607,7 +2637,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="huntington&#x27;s disease genetic disorder that causes progressive deterioration of brain cells. caused by a dominant allele. symptoms do not appear until about the age of 30." aria-expanded="false">
+<button class="card" id="card-161" type="button" data-id="161" data-category="Diseases, disorders &amp; diagnosis" data-text="huntington&#x27;s disease genetic disorder that causes progressive deterioration of brain cells. caused by a dominant allele. symptoms do not appear until about the age of 30." aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">161</div>
@@ -2623,7 +2653,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="communicable disease a disease that is spread from one host to another" aria-expanded="false">
+<button class="card" id="card-162" type="button" data-id="162" data-category="Diseases, disorders &amp; diagnosis" data-text="communicable disease a disease that is spread from one host to another" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">162</div>
@@ -2639,7 +2669,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="hemophilia a group of hereditary bleeding disorders in which a blood-clotting factor is missing" aria-expanded="false">
+<button class="card" id="card-163" type="button" data-id="163" data-category="Diseases, disorders &amp; diagnosis" data-text="hemophilia a group of hereditary bleeding disorders in which a blood-clotting factor is missing" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">163</div>
@@ -2655,7 +2685,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="anomaly deviation from what is normal" aria-expanded="false">
+<button class="card" id="card-164" type="button" data-id="164" data-category="Diseases, disorders &amp; diagnosis" data-text="anomaly deviation from what is normal" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">164</div>
@@ -2671,7 +2701,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="hypertrophy increase in cell size" aria-expanded="false">
+<button class="card" id="card-165" type="button" data-id="165" data-category="Tissues, cells &amp; growth changes" data-text="hypertrophy increase in cell size" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">165</div>
@@ -2687,7 +2717,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="exocrine glands secrete chemical substances into ducts that lead either to other organs or out of the body" aria-expanded="false">
+<button class="card" id="card-166" type="button" data-id="166" data-category="Body parts, organs &amp; body roots" data-text="exocrine glands secrete chemical substances into ducts that lead either to other organs or out of the body" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">166</div>
@@ -2703,7 +2733,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="stasia to control" aria-expanded="false">
+<button class="card" id="card-167" type="button" data-id="167" data-category="Word parts: prefixes, suffixes, roots" data-text="stasia to control" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">167</div>
@@ -2719,7 +2749,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="nosocomial infection hospital acquired infection" aria-expanded="false">
+<button class="card" id="card-168" type="button" data-id="168" data-category="Diseases, disorders &amp; diagnosis" data-text="nosocomial infection hospital acquired infection" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">168</div>
@@ -2735,7 +2765,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="phenylketonuria a genetic disorder in which an essential digestive enzyme is missing" aria-expanded="false">
+<button class="card" id="card-169" type="button" data-id="169" data-category="Diseases, disorders &amp; diagnosis" data-text="phenylketonuria a genetic disorder in which an essential digestive enzyme is missing" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">169</div>
@@ -2751,7 +2781,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="telemetry a process in which electronic signals are converted into coded, audible signals; these signals can then be transmitted by radio or telephone to a receiver with a decoder at the hospital." aria-expanded="false">
+<button class="card" id="card-170" type="button" data-id="170" data-category="Clinical care, symptoms, wounds &amp; exams" data-text="telemetry a process in which electronic signals are converted into coded, audible signals; these signals can then be transmitted by radio or telephone to a receiver with a decoder at the hospital." aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">170</div>
@@ -2767,7 +2797,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="droplet transmission the spread of diseases such as measles, cold, and flu through large respiratory droplets sprayed by coughing or sneezing onto a nearby person or object" aria-expanded="false">
+<button class="card" id="card-171" type="button" data-id="171" data-category="Infection spread &amp; epidemiology" data-text="droplet transmission the spread of diseases such as measles, cold, and flu through large respiratory droplets sprayed by coughing or sneezing onto a nearby person or object" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">171</div>
@@ -2783,7 +2813,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="idiopathic disorder an illness without known cause" aria-expanded="false">
+<button class="card" id="card-172" type="button" data-id="172" data-category="Diseases, disorders &amp; diagnosis" data-text="idiopathic disorder an illness without known cause" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">172</div>
@@ -2799,7 +2829,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="adenectomy surgical removal of a gland" aria-expanded="false">
+<button class="card" id="card-173" type="button" data-id="173" data-category="Body parts, organs &amp; body roots" data-text="adenectomy surgical removal of a gland" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">173</div>
@@ -2815,7 +2845,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="cystic fibrosis a genetic disorder that is present at birth and affects both the respiratory and digestive systems." aria-expanded="false">
+<button class="card" id="card-174" type="button" data-id="174" data-category="Diseases, disorders &amp; diagnosis" data-text="cystic fibrosis a genetic disorder that is present at birth and affects both the respiratory and digestive systems." aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">174</div>
@@ -2831,7 +2861,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="dense tissue such as bone and cartilage, form the joints and framework of the body" aria-expanded="false">
+<button class="card" id="card-175" type="button" data-id="175" data-category="Tissues, cells &amp; growth changes" data-text="dense tissue such as bone and cartilage, form the joints and framework of the body" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">175</div>
@@ -2847,7 +2877,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="loose connective tissue nerve cells and blood vessels are surrounded and supported by this" aria-expanded="false">
+<button class="card" id="card-176" type="button" data-id="176" data-category="Tissues, cells &amp; growth changes" data-text="loose connective tissue nerve cells and blood vessels are surrounded and supported by this" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">176</div>
@@ -2863,7 +2893,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="liquid connective tissue blood and lymph, transport nutrients and waste products throughout the body" aria-expanded="false">
+<button class="card" id="card-177" type="button" data-id="177" data-category="Tissues, cells &amp; growth changes" data-text="liquid connective tissue blood and lymph, transport nutrients and waste products throughout the body" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">177</div>
@@ -2879,7 +2909,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="cytology study of structure and function of cells" aria-expanded="false">
+<button class="card" id="card-178" type="button" data-id="178" data-category="Cells, genes &amp; study of the body" data-text="cytology study of structure and function of cells" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">178</div>
@@ -2895,7 +2925,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="anterior front of the body" aria-expanded="false">
+<button class="card" id="card-179" type="button" data-id="179" data-category="Look-alike / easy to mix up" data-text="anterior front of the body" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">179</div>
@@ -2911,7 +2941,7 @@ main { padding:12px; max-width:760px; margin:auto; }
     </div>
   </div>
 </button>
-<button class="card" type="button" data-text="posterior (dorsal) back of body" aria-expanded="false">
+<button class="card" id="card-180" type="button" data-id="180" data-category="Look-alike / easy to mix up" data-text="posterior (dorsal) back of body" aria-expanded="false">
   <div class="card-inner">
     <div class="card-face card-front">
       <div class="num">180</div>
@@ -2929,33 +2959,7 @@ main { padding:12px; max-width:760px; margin:auto; }
 </button>
 </main>
 <script>
-const search = document.getElementById('search');
-const cards = [...document.querySelectorAll('.card')];
-const visibleCount = document.getElementById('visibleCount');
-function updateVisible() {
-  const q = search.value.trim().toLowerCase();
-  let count = 0;
-  cards.forEach(c => {
-    const show = !q || c.dataset.text.includes(q);
-    c.classList.toggle('hidden', !show);
-    if (show) count++;
-  });
-  visibleCount.textContent = count;
-}
-cards.forEach(card => {
-  card.addEventListener('click', () => {
-    card.classList.toggle('flipped');
-    card.setAttribute('aria-expanded', card.classList.contains('flipped') ? 'true' : 'false');
-  });
-});
-search.addEventListener('input', updateVisible);
-document.getElementById('showTerms').addEventListener('click', () => {
-  cards.forEach(c => { c.classList.remove('flipped'); c.setAttribute('aria-expanded','false'); });
-});
-document.getElementById('showDefs').addEventListener('click', () => {
-  cards.forEach(c => { c.classList.add('flipped'); c.setAttribute('aria-expanded','true'); });
-});
-updateVisible();
+const search=document.getElementById('search');const cards=[...document.querySelectorAll('.card')];const visibleCount=document.getElementById('visibleCount');const activeFilter=document.getElementById('activeFilter');const chips=[...document.querySelectorAll('.chip')];const compareSets=[...document.querySelectorAll('.compare-set')];let selectedCategory='all';let selectedIds=null;function updateVisible(){const q=search.value.trim().toLowerCase();let count=0;cards.forEach(c=>{const show=(selectedCategory==='all'||c.dataset.category===selectedCategory)&&(!selectedIds||selectedIds.has(c.dataset.id))&&(!q||c.dataset.text.includes(q));c.classList.toggle('hidden',!show);if(show)count++;});visibleCount.textContent=count;if(activeFilter)activeFilter.textContent=selectedIds?'compare set':(selectedCategory==='all'?'all buckets':selectedCategory);}function clearCompare(){selectedIds=null;compareSets.forEach(b=>b.classList.remove('active'));}cards.forEach(card=>{card.addEventListener('click',()=>{card.classList.toggle('flipped');card.setAttribute('aria-expanded',card.classList.contains('flipped')?'true':'false');});});chips.forEach(chip=>chip.addEventListener('click',()=>{selectedCategory=chip.dataset.category;clearCompare();chips.forEach(c=>c.classList.toggle('active',c===chip));updateVisible();document.querySelector('.card:not(.hidden)')?.scrollIntoView({behavior:'smooth',block:'start'});}));compareSets.forEach(btn=>btn.addEventListener('click',()=>{selectedIds=new Set(btn.dataset.ids.split(','));selectedCategory='all';chips.forEach(c=>c.classList.toggle('active',c.dataset.category==='all'));compareSets.forEach(b=>b.classList.toggle('active',b===btn));updateVisible();document.querySelector('.card:not(.hidden)')?.scrollIntoView({behavior:'smooth',block:'start'});}));search.addEventListener('input',updateVisible);document.getElementById('showTerms').addEventListener('click',()=>{cards.forEach(c=>{c.classList.remove('flipped');c.setAttribute('aria-expanded','false');});});document.getElementById('showDefs').addEventListener('click',()=>{cards.forEach(c=>{c.classList.add('flipped');c.setAttribute('aria-expanded','true');});});document.getElementById('resetFilters').addEventListener('click',()=>{selectedCategory='all';search.value='';clearCompare();chips.forEach(c=>c.classList.toggle('active',c.dataset.category==='all'));updateVisible();});updateVisible();
 </script>
 </body>
 </html>

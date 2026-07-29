@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 6 Quiz Study Guide</title>
+<style>
+:root { color-scheme: dark; --bg:#0f1115; --panel:#151923; --card:#171b26; --card2:#1f2635; --line:#2b3142; --text:#f2f2f2; --muted:#aeb7c8; --accent:#8ea2ff; --accent2:#69e3c5; --warn:#ffd36e; --bad:#ff8a8a; }
+*{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);line-height:1.5} a{color:var(--accent2)}
+header{position:sticky;top:0;z-index:5;background:rgba(21,25,35,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:14px} h1{font-size:1.18rem;margin:0 0 6px} .sub{color:var(--muted);font-size:.9rem;margin:0 0 10px}
+.controls{display:grid;grid-template-columns:1fr;gap:8px} input{width:100%;padding:12px;border-radius:10px;border:1px solid #3b4358;background:#0f1115;color:#fff;font-size:1rem;min-height:44px} .actions{display:flex;gap:8px;flex-wrap:wrap} button{font:inherit} .action,.chip{border:1px solid #3b4358;background:#1c2230;color:#f2f2f2;padding:10px;border-radius:10px;font-weight:650;cursor:pointer} .action{flex:1;min-height:44px} main{max-width:900px;margin:auto;padding:12px 12px 40px}
+.hero,.panel,.qcard{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:14px;margin:12px 0;box-shadow:0 10px 28px rgba(0,0,0,.18)} .hero h2,.panel h2{margin:0 0 8px;font-size:1.05rem} .grid{display:grid;gap:10px} @media(min-width:760px){.grid.two{grid-template-columns:1fr 1fr}.controls{grid-template-columns:1fr auto}}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:8px;margin-top:10px} .chip{text-align:left;display:flex;flex-direction:column;gap:2px;min-height:64px} .chip small{color:var(--muted);font-weight:500} .chip.active{border-color:var(--accent);box-shadow:0 0 0 1px rgba(142,162,255,.45) inset;background:#232b43}
+.qcard{background:linear-gradient(145deg,var(--card),#111722)} .qtop{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap} .num{color:var(--accent);font-weight:900} .type{color:var(--muted);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em} .missed{background:#3a2915;color:var(--warn);border:1px solid #5a431d;padding:2px 8px;border-radius:99px;font-size:.76rem;font-weight:800} h3{font-size:1.02rem;margin:0 0 10px} details{background:#101722;border:1px solid #30384c;border-radius:12px;padding:10px} summary{cursor:pointer;font-weight:800;color:var(--accent2)} .answer{margin:10px 0 4px;font-size:1.04rem} .count{color:var(--accent2);font-weight:900} .hidden{display:none} li{margin:8px 0} li span{display:block;color:var(--muted);font-size:.92rem} .tag{display:inline-block;border:1px solid #3b4358;border-radius:99px;padding:2px 8px;color:var(--muted);font-size:.78rem;margin:2px}
+</style>
+</head>
+<body>
+<header>
+<h1>Chapter 6 Quiz Study Guide</h1>
+<p class="sub">Source: /home/tesfa/ch6quiiz.pdf · 78 quiz questions · score focus: missed and partial-credit items first.</p>
+<div class="controls"><input id="search" placeholder="Search: spleen, metastasis, passive, antifungal..." autocomplete="off"><div class="actions"><button class="action" id="showAll">Show all answers</button><button class="action" id="hideAll">Hide answers</button><button class="action" id="reset">Reset</button></div></div>
+</header>
+<main>
+<section class="hero"><h2>How to use this page</h2><p><span class="count" id="visibleCount">78</span> / 78 questions visible · active bucket: <b id="activeBucket">all</b>. Do the focus list first, then filter by topic. Tap “Show answer” only after you answer out loud.</p><p><a href="index.html">← Back to CH 1–2 flashcards</a></p></section>
+<section class="panel"><h2>Study buckets</h2><div class="chips"><button class="chip active" data-cat="all"><b>All questions</b><small>78 total</small></button>
+<button class="chip " data-cat="missed"><b>Missed / partial-credit focus</b><small>Q24, Q33, Q37, Q56 plus partial word-parts</small></button>
+<button class="chip " data-cat="lymphatic"><b>Lymphatic organs &amp; lymph flow</b><small>spleen, nodes, vessels, tonsils</small></button>
+<button class="chip " data-cat="immunity"><b>Immunity &amp; allergies</b><small>active/passive, antigens, lymphocytes</small></button>
+<button class="chip " data-cat="infection"><b>Infections &amp; organisms</b><small>viral, fungal, parasitic, rabies, flu</small></button>
+<button class="chip " data-cat="cancer"><b>Cancer &amp; oncology</b><small>benign/malignant, metastasis, tumors</small></button>
+<button class="chip " data-cat="medications"><b>Medication classes</b><small>antiviral, antibiotics, antihistamines</small></button>
+<button class="chip " data-cat="word-parts"><b>Word parts &amp; notation</b><small>combining forms, prefixes, suffixes</small></button></div></section>
+<section class="panel"><h2>Missed / partial-credit first</h2><ol><li><a href="#q24">Q24</a> — True (quiz correction) <span>You marked False and lost credit. Study this as True for the course quiz wording.</span></li><li><a href="#q33">Q33</a> — metastasis <span>You typed “matastasis”; correct spelling is metastasis.</span></li><li><a href="#q37">Q37</a> — True (quiz correction) <span>You marked False and lost credit. Study this as True for the course quiz wording.</span></li><li><a href="#q56">Q56</a> — course answer to check: active/acquired immunity <span>You entered active but Canvas gave 0. The concept is vaccine-induced active/acquired immunity; check the exact expected wording before retake.</span></li><li><a href="#q59">Q59</a> — Antibiotic: anti- / bi/o / -tic; Lymphedema: lymph/o / -edema; Carcinoma: carcin / -oma; Lymphadenopathy: lymphaden/o / -pathy; Hemolytic: hem/o / -lytic. <span>You got partial credit. Recheck Antibiotic notation if the course expects a different split.</span></li><li><a href="#q72">Q72</a> — Cytomegalovirus: cyt/o / megal/o / vir / -us; Antifungal: anti- / fung / -al; Immunotherapy: immun/o / -therapy; Bactericide: bacteri/o / -cide; Mammography: mammo/o / -graphy. <span>You got partial credit. Recheck vir versus vir/o and the exact combining-form notation your course expects.</span></li></ol></section>
+<section class="panel"><h2>One-page mental model</h2><div class="grid two"><div><b>Lymphatic system</b><p>Moves lymph back to blood, filters pathogens, and uses lymphocytes. High-yield organs: lymph nodes, tonsils, spleen, thymus, appendix, bone marrow.</p></div><div><b>Immunity</b><p>Passive = antibodies received from another source, like breast milk. Active/acquired = body builds response after disease exposure or vaccination.</p></div><div><b>Infections</b><p>Viruses: influenza, herpes zoster/shingles, rabies, HIV, Ebola, mumps. Fungus: athlete’s foot. Parasite: malaria, toxoplasmosis.</p></div><div><b>Cancer terms</b><p>Benign is usually not life-threatening; malignant is cancerous/life-threatening. Metastasis/metastasize = cancer spreads to new site.</p></div></div></section>
+<section class="panel"><h2>All questions</h2><p class="sub">No questions skipped. Matching and word-part blocks are included as combined study cards.</p></section>
+<div id="cards"><article class="qcard" id="q1" data-categories="infection" data-text="1 true/false yeast infections occur on skin or mucous membranes in cold and dry areas. false yeast likes warm, moist areas; the quiz answer was false. infection">
+  <div class="qtop"><span class="num">Q1</span><span class="type">True/False</span></div>
+  <h3>Yeast infections occur on skin or mucous membranes in cold and dry areas.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> False</div><p>Yeast likes warm, moist areas; the quiz answer was False.</p></details>
+</article>
+<article class="qcard" id="q2" data-categories="immunity" data-text="2 true/false natural immunity is when resistance to disease is present after exposure to disease or administration of antigen. false that describes acquired/active immunity, not natural immunity. immunity">
+  <div class="qtop"><span class="num">Q2</span><span class="type">True/False</span></div>
+  <h3>Natural immunity is when resistance to disease is present after exposure to disease or administration of antigen.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> False</div><p>That describes acquired/active immunity, not natural immunity.</p></details>
+</article>
+<article class="qcard" id="q3" data-categories="infection" data-text="3 true/false ebola is a rare and fatal disease transmitted by a parasite. false ebola is viral, not parasitic. infection">
+  <div class="qtop"><span class="num">Q3</span><span class="type">True/False</span></div>
+  <h3>Ebola is a rare and fatal disease transmitted by a parasite.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> False</div><p>Ebola is viral, not parasitic.</p></details>
+</article>
+<article class="qcard" id="q4" data-categories="immunity" data-text="4 fill in the blank one of the main reasons to have a mother breastfeed her child is to pass ________ immunity through breast milk. passive breast milk transfers maternal antibodies, so it is passive immunity. immunity">
+  <div class="qtop"><span class="num">Q4</span><span class="type">Fill in the blank</span></div>
+  <h3>One of the main reasons to have a mother breastfeed her child is to pass ________ immunity through breast milk.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> passive</div><p>Breast milk transfers maternal antibodies, so it is passive immunity.</p></details>
+</article>
+<article class="qcard" id="q5" data-categories="cancer" data-text="5 spelling sacromas are malignant tumors arising from connective tissues. sarcomas sarcomas = malignant connective-tissue tumors. cancer">
+  <div class="qtop"><span class="num">Q5</span><span class="type">Spelling</span></div>
+  <h3>Sacromas are malignant tumors arising from connective tissues.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> sarcomas</div><p>Sarcomas = malignant connective-tissue tumors.</p></details>
+</article>
+<article class="qcard" id="q6" data-categories="lymphatic" data-text="6 true/false the lymphatic system is a network of vessels that drain lymph from tissues into the blood. true lymph returns tissue fluid to the bloodstream. lymphatic">
+  <div class="qtop"><span class="num">Q6</span><span class="type">True/False</span></div>
+  <h3>The Lymphatic System is a network of vessels that drain lymph from tissues into the blood.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> True</div><p>Lymph returns tissue fluid to the bloodstream.</p></details>
+</article>
+<article class="qcard" id="q7" data-categories="medications" data-text="7 multiple choice ________ are medications that relieve or prevent symptoms of certain allergies. antihistamines antihistamines block/reduce histamine effects in allergic reactions. medications">
+  <div class="qtop"><span class="num">Q7</span><span class="type">Multiple Choice</span></div>
+  <h3>________ are medications that relieve or prevent symptoms of certain allergies.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> Antihistamines</div><p>Antihistamines block/reduce histamine effects in allergic reactions.</p></details>
+</article>
+<article class="qcard" id="q8" data-categories="immunity" data-text="8 true/false intact skin is one of the immune system’s first lines of defense. true skin is a physical barrier against pathogens. immunity">
+  <div class="qtop"><span class="num">Q8</span><span class="type">True/False</span></div>
+  <h3>Intact skin is one of the immune system’s first lines of defense.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> True</div><p>Skin is a physical barrier against pathogens.</p></details>
+</article>
+<article class="qcard" id="q9" data-categories="infection" data-text="9 multiple choice ________ is a parasite commonly transmitted from pets to humans by contact with contaminated animal feces. toxoplasmosis toxoplasmosis is associated with contaminated animal feces, especially cats. infection">
+  <div class="qtop"><span class="num">Q9</span><span class="type">Multiple Choice</span></div>
+  <h3>________ is a parasite commonly transmitted from pets to humans by contact with contaminated animal feces.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> Toxoplasmosis</div><p>Toxoplasmosis is associated with contaminated animal feces, especially cats.</p></details>
+</article>
+<article class="qcard" id="q10" data-categories="lymphatic" data-text="10 multiple choice ________ is transported in lymphatic vessels. lymph lymphatic vessels carry lymph. lymphatic">
+  <div class="qtop"><span class="num">Q10</span><span class="type">Multiple Choice</span></div>
+  <h3>________ is transported in lymphatic vessels.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> Lymph</div><p>Lymphatic vessels carry lymph.</p></details>
+</article>
+<article class="qcard" id="q11" data-categories="cancer" data-text="11 multiple choice any complete blockage of a blood vessel is referred to as a(n) _______. occlusion occlusion means blockage/closure. cancer">
+  <div class="qtop"><span class="num">Q11</span><span class="type">Multiple Choice</span></div>
+  <h3>Any complete blockage of a blood vessel is referred to as a(n) _______.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> occlusion</div><p>Occlusion means blockage/closure.</p></details>
+</article>
+<article class="qcard" id="q12" data-categories="infection" data-text="12 true/false the viral infection that causes swelling of parotid glands is called mumps. true mumps classically affects parotid salivary glands. infection">
+  <div class="qtop"><span class="num">Q12</span><span class="type">True/False</span></div>
+  <h3>The viral infection that causes swelling of parotid glands is called mumps.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> True</div><p>Mumps classically affects parotid salivary glands.</p></details>
+</article>
+<article class="qcard" id="q13" data-categories="lymphatic" data-text="13 true/false interstitial fluid is plasma from arterial blood that flows out of arterioles/capillaries into spaces between cells and tissues. true interstitial fluid is tissue fluid between cells. lymphatic">
+  <div class="qtop"><span class="num">Q13</span><span class="type">True/False</span></div>
+  <h3>Interstitial fluid is plasma from arterial blood that flows out of arterioles/capillaries into spaces between cells and tissues.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> True</div><p>Interstitial fluid is tissue fluid between cells.</p></details>
+</article>
+<article class="qcard" id="q14" data-categories="infection" data-text="14 multiple choice most common complications of ________ are aids and kaposi’s sarcoma. hiv hiv can progress to aids; kaposi sarcoma is aids-associated. infection">
+  <div class="qtop"><span class="num">Q14</span><span class="type">Multiple Choice</span></div>
+  <h3>Most common complications of ________ are AIDS and Kaposi’s Sarcoma.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> HIV</div><p>HIV can progress to AIDS; Kaposi sarcoma is AIDS-associated.</p></details>
+</article>
+<article class="qcard" id="q15" data-categories="immunity" data-text="15 true/false acquired immunity is obtained by having had a contagious disease. true prior disease exposure can create acquired immunity. immunity">
+  <div class="qtop"><span class="num">Q15</span><span class="type">True/False</span></div>
+  <h3>Acquired immunity is obtained by having had a contagious disease.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> True</div><p>Prior disease exposure can create acquired immunity.</p></details>
+</article>
+<article class="qcard" id="q16" data-categories="infection" data-text="16 spelling parrasites are plants or animals living on or within other organisms at the expense of those organisms. parasites correct spelling: parasites. infection">
+  <div class="qtop"><span class="num">Q16</span><span class="type">Spelling</span></div>
+  <h3>Parrasites are plants or animals living on or within other organisms at the expense of those organisms.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> parasites</div><p>Correct spelling: parasites.</p></details>
+</article>
+<article class="qcard" id="q17" data-categories="cancer" data-text="17 multiple choice a(n) ________ diagnoses and treats malignant disorders (cancer). oncologist oncology = study/treatment of tumors and cancer. cancer">
+  <div class="qtop"><span class="num">Q17</span><span class="type">Multiple Choice</span></div>
+  <h3>A(n) ________ diagnoses and treats malignant disorders (cancer).</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> Oncologist</div><p>Oncology = study/treatment of tumors and cancer.</p></details>
+</article>
+<article class="qcard" id="q18" data-categories="infection" data-text="18 spelling influensa is commonly known as the flu. influenza correct spelling: influenza. infection">
+  <div class="qtop"><span class="num">Q18</span><span class="type">Spelling</span></div>
+  <h3>Influensa is commonly known as the flu.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> influenza</div><p>Correct spelling: influenza.</p></details>
+</article>
+<article class="qcard" id="q19" data-categories="infection" data-text="19 true/false rabies is transmitted to humans through the bite or saliva of infected animals. true rabies transmission is usually through saliva/bites. infection">
+  <div class="qtop"><span class="num">Q19</span><span class="type">True/False</span></div>
+  <h3>Rabies is transmitted to humans through the bite or saliva of infected animals.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> True</div><p>Rabies transmission is usually through saliva/bites.</p></details>
+</article>
+<article class="qcard" id="q20" data-categories="lymphatic" data-text="20 true/false a lymph node contains specialized lymphocytes capable of destroying pathogens. true lymph nodes house lymphocytes for immune defense. lymphatic">
+  <div class="qtop"><span class="num">Q20</span><span class="type">True/False</span></div>
+  <h3>A lymph node contains specialized lymphocytes capable of destroying pathogens.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> True</div><p>Lymph nodes house lymphocytes for immune defense.</p></details>
+</article>
+<article class="qcard" id="q21" data-categories="lymphatic" data-text="21 spelling lymfadenitys is an inflammation of lymph nodes. lymphadenitis lymphadenitis = inflammation of lymph nodes. lymphatic">
+  <div class="qtop"><span class="num">Q21</span><span class="type">Spelling</span></div>
+  <h3>Lymfadenitys is an inflammation of lymph nodes.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> lymphadenitis</div><p>Lymphadenitis = inflammation of lymph nodes.</p></details>
+</article>
+<article class="qcard" id="q22" data-categories="medications" data-text="22 spelling antifungales destroy or inhibit the growth of fungi. antifungals correct spelling: antifungals. medications">
+  <div class="qtop"><span class="num">Q22</span><span class="type">Spelling</span></div>
+  <h3>Antifungales destroy or inhibit the growth of fungi.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> antifungals</div><p>Correct spelling: antifungals.</p></details>
+</article>
+<article class="qcard" id="q23" data-categories="lymphatic" data-text="23 multiple choice the role of the ________ is to prevent pathogens from entering the respiratory system. tonsils tonsils help trap pathogens entering through mouth/nose. lymphatic">
+  <div class="qtop"><span class="num">Q23</span><span class="type">Multiple Choice</span></div>
+  <h3>The role of the ________ is to prevent pathogens from entering the respiratory system.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> Tonsils</div><p>Tonsils help trap pathogens entering through mouth/nose.</p></details>
+</article>
+<article class="qcard" id="q24" data-categories="missed" data-text="24 true/false to treat viral infections or provide temporary immunity, doctors prescribe antiviral drugs. true (quiz correction) you marked false and lost credit. study this as true for the course quiz wording. missed">
+  <div class="qtop"><span class="num">Q24</span><span class="type">True/False</span><span class="missed">focus</span></div>
+  <h3>To treat viral infections or provide temporary immunity, doctors prescribe antiviral drugs.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> True (quiz correction)</div><p>You marked False and lost credit. Study this as True for the course quiz wording.</p></details>
+</article>
+<article class="qcard" id="q25" data-categories="cancer" data-text="25 true/false metastasis may occur in the same body system or in another body system at a distance from the primary site. true metastasis means spread from primary site. cancer">
+  <div class="qtop"><span class="num">Q25</span><span class="type">True/False</span></div>
+  <h3>Metastasis may occur in the same body system or in another body system at a distance from the primary site.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> True</div><p>Metastasis means spread from primary site.</p></details>
+</article>
+<article class="qcard" id="q26" data-categories="immunity" data-text="26 spelling imunity is the state of being resistant to a specific disease. immunity correct spelling: immunity. immunity">
+  <div class="qtop"><span class="num">Q26</span><span class="type">Spelling</span></div>
+  <h3>Imunity is the state of being resistant to a specific disease.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> immunity</div><p>Correct spelling: immunity.</p></details>
+</article>
+<article class="qcard" id="q27" data-categories="lymphatic" data-text="27 true/false lymphadenopathy is any disease affecting lymph nodes. true -pathy = disease; lymphaden/o = lymph nodes. lymphatic">
+  <div class="qtop"><span class="num">Q27</span><span class="type">True/False</span></div>
+  <h3>Lymphadenopathy is any disease affecting lymph nodes.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> True</div><p>-pathy = disease; lymphaden/o = lymph nodes.</p></details>
+</article>
+<article class="qcard" id="q28" data-categories="word-parts" data-text="28 matching match word parts: anti-, adenoid/o, lymphadeno/o, lymphocyt/o, sarc/o, splen/o, thym/o, myel/o, tox/o, tonsill/o, lymph/o, lymphangi/o, onc/o, immun/o, phag/o, -edema. anti- = against; adenoid/o = adenoid; lymphadeno/o = lymph nodes; lymphocyt/o = lymphocytes; sarc/o = flesh; splen/o = spleen; thym/o = thymus; myel/o = bone marrow; tox/o = poison; tonsill/o = tonsils; lymph/o = lymph; lymphangi/o = lymphatic vessels; onc/o = tumor; immun/o = protection/safe; phag/o = eat/swallow; -edema = swelling. know these as word-part flashcards. word-parts">
+  <div class="qtop"><span class="num">Q28</span><span class="type">Matching</span></div>
+  <h3>Match word parts: anti-, adenoid/o, lymphadeno/o, lymphocyt/o, sarc/o, splen/o, thym/o, myel/o, tox/o, tonsill/o, lymph/o, lymphangi/o, onc/o, immun/o, phag/o, -edema.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> anti- = against; adenoid/o = adenoid; lymphadeno/o = lymph nodes; lymphocyt/o = lymphocytes; sarc/o = flesh; splen/o = spleen; thym/o = thymus; myel/o = bone marrow; tox/o = poison; tonsill/o = tonsils; lymph/o = lymph; lymphangi/o = lymphatic vessels; onc/o = tumor; immun/o = protection/safe; phag/o = eat/swallow; -edema = swelling.</div><p>Know these as word-part flashcards.</p></details>
+</article>
+<article class="qcard" id="q29" data-categories="cancer" data-text="29 true/false benign tumors are life-threatening. false benign tumors are noncancerous; malignant means life-threatening/cancerous. cancer">
+  <div class="qtop"><span class="num">Q29</span><span class="type">True/False</span></div>
+  <h3>Benign tumors are life-threatening.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> False</div><p>Benign tumors are noncancerous; malignant means life-threatening/cancerous.</p></details>
+</article>
+<article class="qcard" id="q30" data-categories="cancer" data-text="30 multiple choice lumpectomy and mastectomy are considered ________ treatments for breast cancer. surgical -ectomy procedures remove tissue surgically. cancer">
+  <div class="qtop"><span class="num">Q30</span><span class="type">Multiple Choice</span></div>
+  <h3>Lumpectomy and mastectomy are considered ________ treatments for breast cancer.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> surgical</div><p>-ectomy procedures remove tissue surgically.</p></details>
+</article>
+<article class="qcard" id="q31" data-categories="immunity" data-text="31 true/false an autoimmune disorder is when an immune system produces antibodies against its own tissues. true autoimmune = immune system attacks self. immunity">
+  <div class="qtop"><span class="num">Q31</span><span class="type">True/False</span></div>
+  <h3>An autoimmune disorder is when an immune system produces antibodies against its own tissues.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> True</div><p>Autoimmune = immune system attacks self.</p></details>
+</article>
+<article class="qcard" id="q32" data-categories="immunity" data-text="32 spelling an allergyst diagnoses and treats altered immune response such as allergic reactions. allergist correct spelling: allergist. immunity">
+  <div class="qtop"><span class="num">Q32</span><span class="type">Spelling</span></div>
+  <h3>An Allergyst diagnoses and treats altered immune response such as allergic reactions.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> allergist</div><p>Correct spelling: allergist.</p></details>
+</article>
+<article class="qcard" id="q33" data-categories="missed" data-text="33 spelling mestatasis is the process by which cancer is spread to a new site. metastasis you typed “matastasis”; correct spelling is metastasis. missed">
+  <div class="qtop"><span class="num">Q33</span><span class="type">Spelling</span><span class="missed">focus</span></div>
+  <h3>Mestatasis is the process by which cancer is spread to a new site.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> metastasis</div><p>You typed “matastasis”; correct spelling is metastasis.</p></details>
+</article>
+<article class="qcard" id="q34" data-categories="lymphatic" data-text="34 multiple choice the ______ hangs from the lower portion of the cecum and may play an important role in the immune system. appendix appendix is attached near the cecum. lymphatic">
+  <div class="qtop"><span class="num">Q34</span><span class="type">Multiple Choice</span></div>
+  <h3>The ______ hangs from the lower portion of the cecum and may play an important role in the immune system.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> appendix</div><p>Appendix is attached near the cecum.</p></details>
+</article>
+<article class="qcard" id="q35" data-categories="infection" data-text="35 multiple choice acronym ________ stands for human immunodeficiency virus. hiv hiv = human immunodeficiency virus. infection">
+  <div class="qtop"><span class="num">Q35</span><span class="type">Multiple Choice</span></div>
+  <h3>Acronym ________ stands for Human Immunodeficiency Virus.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> HIV</div><p>HIV = Human Immunodeficiency Virus.</p></details>
+</article>
+<article class="qcard" id="q36" data-categories="cancer" data-text="36 multiple choice the term ________ means life-threatening. malignant malignant tumors are cancerous/life-threatening. cancer">
+  <div class="qtop"><span class="num">Q36</span><span class="type">Multiple Choice</span></div>
+  <h3>The term ________ means life-threatening.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> malignant</div><p>Malignant tumors are cancerous/life-threatening.</p></details>
+</article>
+<article class="qcard" id="q37" data-categories="missed" data-text="37 true/false osteosarcoma is a malignant tumor that usually grows in the upper shaft of long bones, pelvis, or knee. true (quiz correction) you marked false and lost credit. study this as true for the course quiz wording. missed">
+  <div class="qtop"><span class="num">Q37</span><span class="type">True/False</span><span class="missed">focus</span></div>
+  <h3>Osteosarcoma is a malignant tumor that usually grows in the upper shaft of long bones, pelvis, or knee.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> True (quiz correction)</div><p>You marked False and lost credit. Study this as True for the course quiz wording.</p></details>
+</article>
+<article class="qcard" id="q38" data-categories="cancer" data-text="38 spelling mamography is a radiographic examination of the breast. mammography correct spelling: mammography. cancer">
+  <div class="qtop"><span class="num">Q38</span><span class="type">Spelling</span></div>
+  <h3>Mamography is a radiographic examination of the breast.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> mammography</div><p>Correct spelling: mammography.</p></details>
+</article>
+<article class="qcard" id="q39" data-categories="lymphatic" data-text="39 multiple choice ________ is the abnormal enlargement of the spleen. splenomegaly splen/o = spleen; -megaly = enlargement. lymphatic">
+  <div class="qtop"><span class="num">Q39</span><span class="type">Multiple Choice</span></div>
+  <h3>________ is the abnormal enlargement of the spleen.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> Splenomegaly</div><p>splen/o = spleen; -megaly = enlargement.</p></details>
+</article>
+<article class="qcard" id="q40" data-categories="infection" data-text="40 multiple choice shingles is also known as ________. herpes zoster herpes zoster = shingles. infection">
+  <div class="qtop"><span class="num">Q40</span><span class="type">Multiple Choice</span></div>
+  <h3>Shingles is also known as ________.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> Herpes Zoster</div><p>Herpes zoster = shingles.</p></details>
+</article>
+<article class="qcard" id="q41" data-categories="immunity" data-text="41 multiple choice ________ are specialized leukocytes acting as part of the antigen-antibody reaction. phagocytes the quiz selected phagocytes; also remember immunoglobulins are antibodies. immunity">
+  <div class="qtop"><span class="num">Q41</span><span class="type">Multiple Choice</span></div>
+  <h3>________ are specialized leukocytes acting as part of the antigen-antibody reaction.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> Phagocytes</div><p>The quiz selected phagocytes; also remember immunoglobulins are antibodies.</p></details>
+</article>
+<article class="qcard" id="q42" data-categories="lymphatic" data-text="42 true/false lymphedema occurs when blood accumulates in the tissue due to poor drainage. false lymphedema is lymph/fluid accumulation, not blood. lymphatic">
+  <div class="qtop"><span class="num">Q42</span><span class="type">True/False</span></div>
+  <h3>Lymphedema occurs when blood accumulates in the tissue due to poor drainage.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> False</div><p>Lymphedema is lymph/fluid accumulation, not blood.</p></details>
+</article>
+<article class="qcard" id="q43" data-categories="immunity" data-text="43 multiple choice a(n) ____ (ag) is any substance the body regards as foreign. antigen ag = antigen. immunity">
+  <div class="qtop"><span class="num">Q43</span><span class="type">Multiple Choice</span></div>
+  <h3>A(n) ____ (Ag) is any substance the body regards as foreign.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> Antigen</div><p>Ag = antigen.</p></details>
+</article>
+<article class="qcard" id="q44" data-categories="immunity" data-text="44 true/false an allergy is an overreaction by the body to a particular antibody. false an allergy is a response to an allergen/antigen, not an antibody. immunity">
+  <div class="qtop"><span class="num">Q44</span><span class="type">True/False</span></div>
+  <h3>An allergy is an overreaction by the body to a particular antibody.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> False</div><p>An allergy is a response to an allergen/antigen, not an antibody.</p></details>
+</article>
+<article class="qcard" id="q45" data-categories="medications" data-text="45 spelling a bactericyde is a medication that causes the death of bacteria. bactericide -cide = kill. medications">
+  <div class="qtop"><span class="num">Q45</span><span class="type">Spelling</span></div>
+  <h3>A bactericyde is a medication that causes the death of bacteria.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> bactericide</div><p>-cide = kill.</p></details>
+</article>
+<article class="qcard" id="q46" data-categories="infection" data-text="46 multiple choice the etiology of malaria is a ________. parasite malaria is caused by a parasite. infection">
+  <div class="qtop"><span class="num">Q46</span><span class="type">Multiple Choice</span></div>
+  <h3>The etiology of malaria is a ________.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> parasite</div><p>Malaria is caused by a parasite.</p></details>
+</article>
+<article class="qcard" id="q47" data-categories="immunity" data-text="47 true/false an immunologist diagnoses and treats disorders of the lymphatic system. false immunologist = immune disorders; lymphatic specialist wording is different. immunity">
+  <div class="qtop"><span class="num">Q47</span><span class="type">True/False</span></div>
+  <h3>An immunologist diagnoses and treats disorders of the lymphatic system.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> False</div><p>Immunologist = immune disorders; lymphatic specialist wording is different.</p></details>
+</article>
+<article class="qcard" id="q48" data-categories="medications" data-text="48 spelling inmunosuppressant treatment prevents/reduces the body’s normal immune response. immunosuppressant correct spelling: immunosuppressant. medications">
+  <div class="qtop"><span class="num">Q48</span><span class="type">Spelling</span></div>
+  <h3>Inmunosuppressant treatment prevents/reduces the body’s normal immune response.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> immunosuppressant</div><p>Correct spelling: immunosuppressant.</p></details>
+</article>
+<article class="qcard" id="q49" data-categories="cancer" data-text="49 true/false a myoma is a benign tumor made up of bone tissue. false my/o = muscle; myoma is a benign muscle tumor. cancer">
+  <div class="qtop"><span class="num">Q49</span><span class="type">True/False</span></div>
+  <h3>A myoma is a benign tumor made up of bone tissue.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> False</div><p>My/o = muscle; myoma is a benign muscle tumor.</p></details>
+</article>
+<article class="qcard" id="q50" data-categories="immunity" data-text="50 multiple choice mmr stands for ________ vaccination. measles, mumps, rubella mmr = measles, mumps, rubella. immunity">
+  <div class="qtop"><span class="num">Q50</span><span class="type">Multiple Choice</span></div>
+  <h3>MMR stands for ________ vaccination.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> Measles, Mumps, Rubella</div><p>MMR = measles, mumps, rubella.</p></details>
+</article>
+<article class="qcard" id="q51" data-categories="infection" data-text="51 true/false herpes zoster is an acute bacterial infection. false herpes zoster is viral. infection">
+  <div class="qtop"><span class="num">Q51</span><span class="type">True/False</span></div>
+  <h3>Herpes zoster is an acute bacterial infection.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> False</div><p>Herpes zoster is viral.</p></details>
+</article>
+<article class="qcard" id="q52" data-categories="cancer" data-text="52 true/false lymphomas are cancers that affect lymphoid tissues. true lymphoma = cancer of lymphoid tissue. cancer">
+  <div class="qtop"><span class="num">Q52</span><span class="type">True/False</span></div>
+  <h3>Lymphomas are cancers that affect lymphoid tissues.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> True</div><p>Lymphoma = cancer of lymphoid tissue.</p></details>
+</article>
+<article class="qcard" id="q53" data-categories="cancer" data-text="53 multiple choice breast cancer may _______ to lymph nodes and other sites. metastasize verb form: metastasize. noun: metastasis. cancer">
+  <div class="qtop"><span class="num">Q53</span><span class="type">Multiple Choice</span></div>
+  <h3>Breast cancer may _______ to lymph nodes and other sites.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> metastasize</div><p>Verb form: metastasize. Noun: metastasis.</p></details>
+</article>
+<article class="qcard" id="q54" data-categories="immunity" data-text="54 true/false lymphocytes assist in defending the body against antigens. true lymphocytes are immune-defense wbcs. immunity">
+  <div class="qtop"><span class="num">Q54</span><span class="type">True/False</span></div>
+  <h3>Lymphocytes assist in defending the body against antigens.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> True</div><p>Lymphocytes are immune-defense WBCs.</p></details>
+</article>
+<article class="qcard" id="q55" data-categories="lymphatic" data-text="55 true/false the spleen is in the right upper quadrant of the abdomen. false the spleen is in the left upper quadrant. lymphatic">
+  <div class="qtop"><span class="num">Q55</span><span class="type">True/False</span></div>
+  <h3>The spleen is in the right upper quadrant of the abdomen.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> False</div><p>The spleen is in the left upper quadrant.</p></details>
+</article>
+<article class="qcard" id="q56" data-categories="missed" data-text="56 fill in the blank millions of people have received ________ immunity through vaccines since the covid-19 pandemic started. course answer to check: active/acquired immunity you entered active but canvas gave 0. the concept is vaccine-induced active/acquired immunity; check the exact expected wording before retake. missed">
+  <div class="qtop"><span class="num">Q56</span><span class="type">Fill in the blank</span><span class="missed">focus</span></div>
+  <h3>Millions of people have received ________ immunity through vaccines since the COVID-19 pandemic started.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> course answer to check: active/acquired immunity</div><p>You entered active but Canvas gave 0. The concept is vaccine-induced active/acquired immunity; check the exact expected wording before retake.</p></details>
+</article>
+<article class="qcard" id="q57" data-categories="immunity" data-text="57 true/false lymphocytes assist in defending the body against antigens. true duplicate concept from q54; study it as high-yield. immunity">
+  <div class="qtop"><span class="num">Q57</span><span class="type">True/False</span></div>
+  <h3>Lymphocytes assist in defending the body against antigens.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> True</div><p>Duplicate concept from Q54; study it as high-yield.</p></details>
+</article>
+<article class="qcard" id="q58" data-categories="cancer" data-text="58 fill in the blank mrs. jackson, age 40, was recommended by her gynecologist to perform a breast ________ as a self-care preventative measure. self examination breast self-examination is a preventative/self-care screening behavior. cancer">
+  <div class="qtop"><span class="num">Q58</span><span class="type">Fill in the blank</span></div>
+  <h3>Mrs. Jackson, age 40, was recommended by her gynecologist to perform a breast ________ as a self-care preventative measure.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> self examination</div><p>Breast self-examination is a preventative/self-care screening behavior.</p></details>
+</article>
+<article class="qcard" id="q59" data-categories="word-parts missed" data-text="59 word-parts break down: antibiotic, lymphedema, carcinoma, lymphadenopathy, hemolytic. antibiotic: anti- / bi/o / -tic; lymphedema: lymph/o / -edema; carcinoma: carcin / -oma; lymphadenopathy: lymphaden/o / -pathy; hemolytic: hem/o / -lytic. you got partial credit. recheck antibiotic notation if the course expects a different split. word-parts missed">
+  <div class="qtop"><span class="num">Q59</span><span class="type">Word-parts</span><span class="missed">focus</span></div>
+  <h3>Break down: Antibiotic, Lymphedema, Carcinoma, Lymphadenopathy, Hemolytic.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> Antibiotic: anti- / bi/o / -tic; Lymphedema: lymph/o / -edema; Carcinoma: carcin / -oma; Lymphadenopathy: lymphaden/o / -pathy; Hemolytic: hem/o / -lytic.</div><p>You got partial credit. Recheck Antibiotic notation if the course expects a different split.</p></details>
+</article>
+<article class="qcard" id="q60" data-categories="lymphatic" data-text="60 true/false a ruptured spleen is considered a medical emergency. true splenic rupture can cause life-threatening bleeding. lymphatic">
+  <div class="qtop"><span class="num">Q60</span><span class="type">True/False</span></div>
+  <h3>A ruptured spleen is considered a medical emergency.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> True</div><p>Splenic rupture can cause life-threatening bleeding.</p></details>
+</article>
+<article class="qcard" id="q61" data-categories="lymphatic" data-text="61 multiple choice one function of the ________ is filtration of microorganisms and other foreign materials from the blood. spleen spleen filters blood and supports immune response. lymphatic">
+  <div class="qtop"><span class="num">Q61</span><span class="type">Multiple Choice</span></div>
+  <h3>One function of the ________ is filtration of microorganisms and other foreign materials from the blood.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> Spleen</div><p>Spleen filters blood and supports immune response.</p></details>
+</article>
+<article class="qcard" id="q62" data-categories="infection" data-text="62 spelling chickenpox is caused by the virus varizella zoster. varicella correct spelling: varicella. infection">
+  <div class="qtop"><span class="num">Q62</span><span class="type">Spelling</span></div>
+  <h3>Chickenpox is caused by the virus Varizella zoster.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> varicella</div><p>Correct spelling: varicella.</p></details>
+</article>
+<article class="qcard" id="q63" data-categories="infection" data-text="63 true/false influenza is a bacterial respiratory infection. false influenza is viral. infection">
+  <div class="qtop"><span class="num">Q63</span><span class="type">True/False</span></div>
+  <h3>Influenza is a bacterial respiratory infection.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> False</div><p>Influenza is viral.</p></details>
+</article>
+<article class="qcard" id="q64" data-categories="immunity" data-text="64 fill in the blank little thomas was stung by a bee and suffered a systemic reaction, also called ________. anaphylaxis anaphylaxis = severe systemic allergic reaction. immunity">
+  <div class="qtop"><span class="num">Q64</span><span class="type">Fill in the blank</span></div>
+  <h3>Little Thomas was stung by a bee and suffered a systemic reaction, also called ________.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> anaphylaxis</div><p>Anaphylaxis = severe systemic allergic reaction.</p></details>
+</article>
+<article class="qcard" id="q65" data-categories="medications" data-text="65 multiple choice ________ kill or inhibit the growth of bacteria. antibiotics antibiotics kill/inhibit bacteria. medications">
+  <div class="qtop"><span class="num">Q65</span><span class="type">Multiple Choice</span></div>
+  <h3>________ kill or inhibit the growth of bacteria.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> Antibiotics</div><p>Antibiotics kill/inhibit bacteria.</p></details>
+</article>
+<article class="qcard" id="q66" data-categories="lymphatic" data-text="66 fill in the blank mrs. carter has a congenital malformation of lymphatic vessels; the benign tumor is a ________. lymphangioma lymphangi/o = lymphatic vessels; -oma = tumor. lymphatic">
+  <div class="qtop"><span class="num">Q66</span><span class="type">Fill in the blank</span></div>
+  <h3>Mrs. Carter has a congenital malformation of lymphatic vessels; the benign tumor is a ________.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> lymphangioma</div><p>lymphangi/o = lymphatic vessels; -oma = tumor.</p></details>
+</article>
+<article class="qcard" id="q67" data-categories="infection" data-text="67 multiple choice athlete’s foot is caused by a type of parasitic microorganism called a ___________. fungus athlete’s foot is fungal. infection">
+  <div class="qtop"><span class="num">Q67</span><span class="type">Multiple Choice</span></div>
+  <h3>Athlete’s foot is caused by a type of parasitic microorganism called a ___________.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> Fungus</div><p>Athlete’s foot is fungal.</p></details>
+</article>
+<article class="qcard" id="q68" data-categories="immunity" data-text="68 true/false the immune system is the body’s natural defense against antigens. true immune system protects against foreign substances/pathogens. immunity">
+  <div class="qtop"><span class="num">Q68</span><span class="type">True/False</span></div>
+  <h3>The immune system is the body’s natural defense against antigens.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> True</div><p>Immune system protects against foreign substances/pathogens.</p></details>
+</article>
+<article class="qcard" id="q69" data-categories="medications" data-text="69 true/false antibiotic-resistant bacteria occur when surviving bacteria become resistant to a particular drug. true survivors can develop/resist a drug. medications">
+  <div class="qtop"><span class="num">Q69</span><span class="type">True/False</span></div>
+  <h3>Antibiotic-resistant bacteria occur when surviving bacteria become resistant to a particular drug.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> True</div><p>Survivors can develop/resist a drug.</p></details>
+</article>
+<article class="qcard" id="q70" data-categories="immunity" data-text="70 multiple choice ________ are a type of leukocytes formed in bone marrow. lymphocytes lymphocytes are wbcs/leukocytes. immunity">
+  <div class="qtop"><span class="num">Q70</span><span class="type">Multiple Choice</span></div>
+  <h3>________ are a type of leukocytes formed in bone marrow.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> Lymphocytes</div><p>Lymphocytes are WBCs/leukocytes.</p></details>
+</article>
+<article class="qcard" id="q71" data-categories="medications" data-text="71 true/false cytotoxic drugs are medications that kill or damage cells. true cyt/o = cell; toxic = damaging/poisonous. medications">
+  <div class="qtop"><span class="num">Q71</span><span class="type">True/False</span></div>
+  <h3>Cytotoxic drugs are medications that kill or damage cells.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> True</div><p>cyt/o = cell; toxic = damaging/poisonous.</p></details>
+</article>
+<article class="qcard" id="q72" data-categories="word-parts missed" data-text="72 word-parts break down: cytomegalovirus, antifungal, immunotherapy, bactericide, mammography. cytomegalovirus: cyt/o / megal/o / vir / -us; antifungal: anti- / fung / -al; immunotherapy: immun/o / -therapy; bactericide: bacteri/o / -cide; mammography: mammo/o / -graphy. you got partial credit. recheck vir versus vir/o and the exact combining-form notation your course expects. word-parts missed">
+  <div class="qtop"><span class="num">Q72</span><span class="type">Word-parts</span><span class="missed">focus</span></div>
+  <h3>Break down: Cytomegalovirus, Antifungal, Immunotherapy, Bactericide, Mammography.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> Cytomegalovirus: cyt/o / megal/o / vir / -us; Antifungal: anti- / fung / -al; Immunotherapy: immun/o / -therapy; Bactericide: bacteri/o / -cide; Mammography: mammo/o / -graphy.</div><p>You got partial credit. Recheck vir versus vir/o and the exact combining-form notation your course expects.</p></details>
+</article>
+<article class="qcard" id="q73" data-categories="immunity" data-text="73 spelling an alergen is a substance that produces allergic reaction. allergen correct spelling: allergen. immunity">
+  <div class="qtop"><span class="num">Q73</span><span class="type">Spelling</span></div>
+  <h3>An alergen is a substance that produces allergic reaction.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> allergen</div><p>Correct spelling: allergen.</p></details>
+</article>
+<article class="qcard" id="q74" data-categories="lymphatic" data-text="74 multiple choice the lymph nodes are classified into three major groups: cervical, ________, and inguinal. axillary main groups: cervical, axillary, inguinal. lymphatic">
+  <div class="qtop"><span class="num">Q74</span><span class="type">Multiple Choice</span></div>
+  <h3>The Lymph Nodes are classified into three major groups: Cervical, ________, and Inguinal.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> Axillary</div><p>Main groups: cervical, axillary, inguinal.</p></details>
+</article>
+<article class="qcard" id="q75" data-categories="infection" data-text="75 true/false infectious mononucleosis is commonly known as shingles. false mono is “kissing disease”; shingles is herpes zoster. infection">
+  <div class="qtop"><span class="num">Q75</span><span class="type">True/False</span></div>
+  <h3>Infectious mononucleosis is commonly known as shingles.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> False</div><p>Mono is “kissing disease”; shingles is herpes zoster.</p></details>
+</article>
+<article class="qcard" id="q76" data-categories="immunity" data-text="76 fill in the blank after a bee incident, thomas’ doctor ordered a diagnostic skin test to identify common allergies called a ________ (two words). scratch test scratch test identifies allergens. immunity">
+  <div class="qtop"><span class="num">Q76</span><span class="type">Fill in the blank</span></div>
+  <h3>After a bee incident, Thomas’ doctor ordered a diagnostic skin test to identify common allergies called a ________ (two words).</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> scratch test</div><p>Scratch test identifies allergens.</p></details>
+</article>
+<article class="qcard" id="q77" data-categories="cancer" data-text="77 multiple choice ________ is the study of prevention, causes, and treatment of tumors and cancer. oncology oncology = study/treatment of cancer; oncologist = doctor. cancer">
+  <div class="qtop"><span class="num">Q77</span><span class="type">Multiple Choice</span></div>
+  <h3>________ is the study of prevention, causes, and treatment of tumors and cancer.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> Oncology</div><p>Oncology = study/treatment of cancer; oncologist = doctor.</p></details>
+</article>
+<article class="qcard" id="q78" data-categories="lymphatic" data-text="78 spelling spleenorrhagia means bleeding from the spleen. splenorrhagia correct spelling: splenorrhagia. lymphatic">
+  <div class="qtop"><span class="num">Q78</span><span class="type">Spelling</span></div>
+  <h3>Spleenorrhagia means bleeding from the spleen.</h3>
+  <details><summary>Show answer</summary><div class="answer"><b>Answer:</b> splenorrhagia</div><p>Correct spelling: splenorrhagia.</p></details>
+</article></div>
+</main>
+<script>
+const cards=[...document.querySelectorAll('.qcard')]
+const chips=[...document.querySelectorAll('.chip')]
+const search=document.getElementById('search')
+const visibleCount=document.getElementById('visibleCount')
+const activeBucket=document.getElementById('activeBucket')
+let active='all'
+function apply(){const q=search.value.trim().toLowerCase();let shown=0;cards.forEach(card=>{const cats=card.dataset.categories.split(' ');const okCat=active==='all'||cats.includes(active);const okText=!q||card.dataset.text.includes(q);const show=okCat&&okText;card.classList.toggle('hidden',!show);if(show)shown++});visibleCount.textContent=shown;activeBucket.textContent=active==='all'?'all':chips.find(c=>c.dataset.cat===active)?.innerText.split('\n')[0]||active}
+chips.forEach(chip=>chip.addEventListener('click',()=>{active=chip.dataset.cat;chips.forEach(c=>c.classList.toggle('active',c===chip));apply();document.getElementById('cards').scrollIntoView({behavior:'smooth',block:'start'})}))
+search.addEventListener('input',apply)
+document.getElementById('reset').addEventListener('click',()=>{active='all';search.value='';chips.forEach((c,i)=>c.classList.toggle('active',i===0));document.querySelectorAll('details').forEach(d=>d.open=false);apply()})
+document.getElementById('showAll').addEventListener('click',()=>document.querySelectorAll('.qcard:not(.hidden) details').forEach(d=>d.open=true))
+document.getElementById('hideAll').addEventListener('click',()=>document.querySelectorAll('details').forEach(d=>d.open=false))
+apply()
+</script>
+</body>
+</html>

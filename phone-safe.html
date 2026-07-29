@@ -38,6 +38,7 @@ details[open] .tap::before { content:'hide '; }
 .hidden { display:none !important; }
 
 .category-hub,.compare-hub{background:#111722;border:1px solid var(--line);border-radius:18px;padding:14px;margin:12px 0 16px}.category-hub h2,.compare-hub h2{font-size:1.05rem;margin:0 0 4px}.category-hub p{margin:0;color:var(--muted);font-size:.92rem}.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:8px;margin-top:12px}.chip{border:1px solid #3b4358;background:#1c2230;color:#f2f2f2;padding:10px;border-radius:10px;font-weight:650;cursor:pointer;text-align:left;display:flex;flex-direction:column;gap:2px;min-height:62px}.chip small,.cat-label{color:var(--muted);font-weight:500;display:block}.chip.active{border-color:var(--accent);box-shadow:0 0 0 1px rgba(142,162,255,.45) inset;background:#232b43}.cat-label{font-size:.78rem;margin-top:3px}
+.site-nav{background:#111722;border:1px solid var(--line);border-radius:18px;padding:12px;margin:12px 0 16px}.site-nav-title{color:var(--muted);font-size:.8rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase;margin:0 0 8px}.site-nav-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:8px}.site-nav a{display:block;text-align:center;color:var(--text);text-decoration:none;background:#1c2230;border:1px solid #3b4358;border-radius:10px;padding:10px;font-weight:750}.site-nav a.active{border-color:var(--accent);background:#232b43;color:#fff}.site-nav a:active{transform:scale(.99)}
 </style>
 </head>
 <body id="top">
@@ -48,8 +49,7 @@ details[open] .tap::before { content:'hide '; }
   <div class="meta"><span id="visibleCount">202</span> / 202 cards visible · bucket: <span id="activeFilter">all buckets</span></div>
 </header>
 <main>
-<p class="meta"><a href="ch6quiz.html">New: Chapter 6 Quiz Study Guide (78 questions)</a></p>
-<p class="meta"><a href="ch6-study-guide.html">New: Chapter 6 Full Study Guide (markdown page)</a></p>
+<nav class="site-nav" aria-label="Site pages"><p class="site-nav-title">Study site pages</p><div class="site-nav-links"><a href="index.html">Flashcards</a><a href="phone-safe.html" class="active" aria-current="page">Phone Safe</a><a href="ch6quiz.html">Ch6 Quiz</a><a href="ch6-study-guide.html">Full Ch6 Guide</a><a href="ch6-study-guide.md">Raw MD</a></div></nav>
   <div class="instructions">The words are now bucketed into intuitive study categories, with nursing dosage equivalents pulled from /home/tesfa/vaults/eden/unitek/dosage-equivalents/dosage.md. Tap a bucket, then tap cards to reveal definitions.</div>
 <section class="category-hub"><h2>Study buckets</h2><p>I grouped the words into intuitive buckets. Tap a bucket to list only that category.</p><div class="chips">
 <button class="chip active" type="button" data-category="all"><b>All cards</b><small>202 cards</small></button>

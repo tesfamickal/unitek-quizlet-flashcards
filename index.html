@@ -34,6 +34,7 @@ main { padding:12px; max-width:760px; margin:auto; }
 @media (min-width:700px) { .controls { grid-template-columns:1fr auto; align-items:center; } .buttons { min-width:240px; } }
 
 .category-hub,.compare-hub{background:#111722;border:1px solid var(--line);border-radius:18px;padding:14px;margin:12px 0 16px}.category-hub h2,.compare-hub h2{font-size:1.05rem;margin:0 0 4px}.category-hub p,.compare-hub p{margin:0;color:var(--muted);font-size:.92rem}.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:8px;margin-top:12px}.chip,.compare-set{border:1px solid #3b4358;background:#1c2230;color:#f2f2f2;padding:10px;border-radius:10px;font-weight:650;cursor:pointer;text-align:left}.chip{display:flex;flex-direction:column;gap:2px;min-height:62px}.chip small,.compare-set small{color:var(--muted);font-weight:500;display:block}.chip.active{border-color:var(--accent);box-shadow:0 0 0 1px rgba(142,162,255,.45) inset;background:#232b43}.compare-grid{display:grid;gap:8px;margin-top:10px}.compare-set.active{border-color:#ffd36e;background:#302817}.cat-label{display:block;color:var(--muted);font-size:.78rem;margin-top:3px}.section-title{font-size:1.05rem;margin:20px 0 8px}
+.site-nav{background:#111722;border:1px solid var(--line);border-radius:18px;padding:12px;margin:12px 0 16px}.site-nav-title{color:var(--muted);font-size:.8rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase;margin:0 0 8px}.site-nav-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:8px}.site-nav a{display:block;text-align:center;color:var(--text);text-decoration:none;background:#1c2230;border:1px solid #3b4358;border-radius:10px;padding:10px;font-weight:750}.site-nav a.active{border-color:var(--accent);background:#232b43;color:#fff}.site-nav a:active{transform:scale(.99)}
 </style>
 </head>
 <body>
@@ -49,8 +50,7 @@ main { padding:12px; max-width:760px; margin:auto; }
 </div>
 </header>
 <main>
-<p class="meta"><a href="ch6quiz.html">New: Chapter 6 Quiz Study Guide (78 questions)</a></p>
-<p class="meta"><a href="ch6-study-guide.html">New: Chapter 6 Full Study Guide (markdown page)</a></p>
+<nav class="site-nav" aria-label="Site pages"><p class="site-nav-title">Study site pages</p><div class="site-nav-links"><a href="index.html" class="active" aria-current="page">Flashcards</a><a href="phone-safe.html">Phone Safe</a><a href="ch6quiz.html">Ch6 Quiz</a><a href="ch6-study-guide.html">Full Ch6 Guide</a><a href="ch6-study-guide.md">Raw MD</a></div></nav>
 <div class="meta"><span class="count" id="visibleCount">202</span> / 202 cards visible · bucket: <span id="activeFilter">all buckets</span> · tap any card to flip.</div>
 <section class="category-hub"><h2>Study buckets</h2><p>I went through the words and grouped them into intuitive buckets. Tap one to list only that category.</p><div class="chips">
 <button class="chip active" type="button" data-category="all"><b>All cards</b><small>202 cards</small></button>

@@ -13,4 +13,4 @@ Mobile-friendly HTML flashcards generated from a Quizlet printout.
 
 - ch11quiz3.html: Chapter 11 quiz #3 study guide from `/home/tesfa/ch11quiz#3.pdf` with all 58 questions, missed/partial focus, filters, and answers.
 - ch11-book-comprehensive-study-guide.html / .md: separate comprehensive book-based guide from `/home/tesfa/ch11book.pdf` covering nervous system and mental health.
-- ch10-dosage-quiz-study-guide.html / .md: comprehensive dosage quiz guide from `/home/tesfa/ch10dosquiz.pdf` with nursing equivalents, measurements, conversions, and worked quiz examples.
+- ch10-dosage-quiz-study-guide.html / .md: expanded Chapter 10 dosage guide from `/home/tesfa/ch10dosquiz.pdf` plus YouTube videos `https://youtu.be/dvQ4ZZ_MiWw` and `https://youtu.be/DTR-bRwzOMo`, covering layover conversions, safe metric notation, quiz examples, and practice.
